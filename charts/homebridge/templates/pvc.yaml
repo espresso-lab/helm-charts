@@ -6,7 +6,7 @@ metadata:
   # namespace: {{ .Release.Namespace }}
   labels:
     {{- include "homebridge.labels" . | nindent 4 }}
-  {{- with .Values.pvc.annotations }}
+  {{- with .Values.persistence.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
