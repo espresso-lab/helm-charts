@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  homebridge:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-02-19T17:54:51.413645203Z"
+    description: A Helm chart for Kubernetes
+    digest: 6f02b6cb1e5dea19aa4e8d5a3cc10cda27112d6acc88ca7a997bd1dcec7d200e
+    name: homebridge
+    type: application
+    urls:
+    - https://github.com/espresso-lab/helm-charts/releases/download/homebridge-0.1.0/homebridge-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-02-19T17:54:51.413673216Z"
