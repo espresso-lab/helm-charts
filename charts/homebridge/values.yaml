@@ -2,6 +2,12 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+# Check:
+# - Created namespace
+# - Pod Works
+# - Ingress works
+# - PVC works
+
 replicaCount: 1
 
 image:
@@ -88,11 +94,8 @@ volumes: []
 # Additional volumeMounts on the output Deployment definition.
 volumeMounts: []
 
-# TODO: Remove
 nodeSelector: {}
 
-# TODO: Remove
 tolerations: []
 
-# TODO: Remove
 affinity: {}
