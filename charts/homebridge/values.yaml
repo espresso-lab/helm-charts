@@ -13,7 +13,7 @@ replicaCount: 1
 image:
   repository: homebridge/homebridge
   pullPolicy: IfNotPresent
-  tag: latest
+  tag: "2024-01-08"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -22,7 +22,7 @@ fullnameOverride: ""
 podAnnotations: {}
 podLabels: {}
 
-hostNetwork: true
+hostNetwork: false
 
 podSecurityContext:
   {}
@@ -40,7 +40,6 @@ securityContext:
 service:
   type: ClusterIP
   port: 8581
-  bridgePort: 51342
 
 ingress:
   enabled: false
