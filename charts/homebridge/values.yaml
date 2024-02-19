@@ -7,26 +7,16 @@ replicaCount: 1
 image:
   repository: homebridge/homebridge
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
-serviceAccount:
-  # Specifies whether a service account should be created
-  create: true
-  # Automatically mount a ServiceAccount's API credentials?
-  automount: true
-  # Annotations to add to the service account
-  annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
-  name: ""
-
 podAnnotations: {}
 podLabels: {}
+
+hostNetwork: true
 
 podSecurityContext:
   {}
@@ -43,7 +33,8 @@ securityContext:
 
 service:
   type: ClusterIP
-  port: 80
+  port: 8581
+  bridgePort: 51342
 
 ingress:
   enabled: false
@@ -75,6 +66,13 @@ resources:
   #   cpu: 100m
   #   memory: 128Mi
 
+pvc:
+  annotations: {}
+  # storageClassName: ""
+  accessModes:
+    - ReadWriteOnce
+  storage: 2Gi
+
 livenessProbe:
   httpGet:
     path: /
@@ -84,28 +82,24 @@ readinessProbe:
     path: /
     port: http
 
-autoscaling:
-  enabled: false
-  minReplicas: 1
-  maxReplicas: 100
-  targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
-
 # Additional volumes on the output Deployment definition.
 volumes: []
-# - name: foo
-#   secret:
-#     secretName: mysecret
-#     optional: false
+- name: data
+  persistentVolumeClaim:
+    claimName: homebridge-pvc
+
 
 # Additional volumeMounts on the output Deployment definition.
-volumeMounts: []
-# - name: foo
-#   mountPath: "/etc/foo"
-#   readOnly: true
+volumeMounts:
+  - name: data
+    mountPath: /homebridge
+    readOnly: false
 
+# TODO: Remove
 nodeSelector: {}
 
+# TODO: Remove
 tolerations: []
 
+# TODO: Remove
 affinity: {}
