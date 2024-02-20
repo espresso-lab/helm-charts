@@ -1,13 +1,3 @@
-# Default values for homebridge.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
-# Check:
-# - Created namespace
-# - Pod Works
-# - Ingress works
-# - PVC works
-
 replicaCount: 1
 
 image:
