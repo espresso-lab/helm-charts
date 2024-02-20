@@ -1,0 +1,20 @@
+
+addons:
+  istio:
+    enabled: false
+  knativeServing:
+    enabled: false
+  # cert-manager:
+  #   enabled: false
+
+# Values for chart dependancy
+argocd:
+
+## Values for chart dependancy
+#cert-manager:
+
+# Values for chart dependancy
+knativeServing:
+
+# Values for chart dependancy
+istio:

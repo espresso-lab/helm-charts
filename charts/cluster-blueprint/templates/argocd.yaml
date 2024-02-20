@@ -1,0 +1,27 @@
+# apiVersion: v1
+# kind: Namespace
+# metadata:
+#   name: argocd
+
+# ---
+
+# ## TODO
+
+# apiVersion: helm.cattle.io/v1
+# kind: HelmChart
+# metadata:
+#   name: argocd
+#   namespace: argocd #kube-system
+# spec:
+#   repo: https://charts.bitnami.com/bitnami
+#   chart: apache
+#   targetNamespace: argocd
+#   valuesContent: |-
+#     service:
+#       type: ClusterIP
+#     ingress:
+#       enabled: true
+#       hostname: www.example.com
+#     metrics:
+#       enabled: true
+
