@@ -31,9 +31,9 @@ spec:
       http:
         paths:
           {{- range .paths }}
-          - path: {{ .path }}
+          - path: {{ .path | default "/" }}
             {{- if .pathType }}
-            pathType: {{ .pathType }}
+            pathType: {{ .pathType | default "ImplementationSpecific" }}
             {{- end }}
             backend:
               service:
