@@ -1,0 +1,27 @@
+apiVersion: v2
+name: cluster-blueprint
+description: A Helm chart for Kubernetes
+type: application
+version: 0.1.0
+appVersion: "1.16.0"
+# dependencies:
+#   - name: argocd
+#     repository: https://charts.bitnami.com/bitnami
+#     version: 19.17.0
+
+#   - name: knative-serving
+#     repository: https://charts.softonic.io
+#     version: 3.0.0
+#     condition: addon.knative-serving.enabled
+
+#   # - name: istio
+#   #   repository: https://charts.bitnami.com/bitnami
+#   #   version: 19.17.0
+#   #   condition: addon.knative-serving.enabled
+
+#   - name: cert-manager
+#     repository: https://charts.bitnami.com/bitnami
+#     version: 19.17.0
+#     condition: addon.cert-manager.enabled
+
+  
