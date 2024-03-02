@@ -3,6 +3,16 @@ entries:
   cluster-blueprint:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-03-02T20:33:14.828992622Z"
+    description: A Helm chart for Kubernetes
+    digest: e11b919d0cee7029b8915669f7bf8ce94f59eb3cb2bb97c3e222739e0ec63881
+    name: cluster-blueprint
+    type: application
+    urls:
+    - https://github.com/espresso-lab/helm-charts/releases/download/cluster-blueprint-0.1.2/cluster-blueprint-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-03-02T20:22:34.061567941Z"
     description: A Helm chart for Kubernetes
     digest: f39d6c1a9c24c6e8c1cd16856ab7f31fef3ab0e3f2ff4d9412306dba7d763f94
@@ -12,6 +22,16 @@ entries:
     - https://github.com/espresso-lab/helm-charts/releases/download/cluster-blueprint-0.1.1/cluster-blueprint-0.1.1.tgz
     version: 0.1.1
   homebridge:
+  - apiVersion: v2
+    appVersion: "2024-01-08"
+    created: "2024-03-02T20:33:14.979150386Z"
+    description: A Helm chart for Kubernetes
+    digest: deffcd1b64d0117f1048aa84f12c5ce757fc875fe7b308e9754d32b70119ecc9
+    name: homebridge
+    type: application
+    urls:
+    - https://github.com/espresso-lab/helm-charts/releases/download/homebridge-0.1.6/homebridge-0.1.6.tgz
+    version: 0.1.6
   - apiVersion: v2
     appVersion: "2024-01-08"
     created: "2024-03-02T20:22:34.18217981Z"
@@ -72,4 +92,4 @@ entries:
     urls:
     - https://github.com/espresso-lab/helm-charts/releases/download/homebridge-0.1.0/homebridge-0.1.0.tgz
     version: 0.1.0
-generated: "2024-03-02T20:22:34.182209796Z"
+generated: "2024-03-02T20:33:14.979183968Z"
