@@ -14,10 +14,11 @@ spec:
       targetPort: ldap
       protocol: TCP
       name: ldap
+  {{- if .Values.dualStack.enabled }}
   ipFamilies:
     - IPv4
-    {{- if .Values.dualStack }}
     - IPv6
-    {{- end }}
+  ipFamilyPolicy: PreferDualStack
+  {{- end }}
   selector:
     {{- include "lldap.selectorLabels" . | nindent 4 }}

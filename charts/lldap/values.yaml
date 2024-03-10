@@ -73,4 +73,5 @@ affinity: {}
 
 ldapBaseDN: "dc=example,dc=com" 
 
-dualStack: false
+dualStack:
+  enabled: false
