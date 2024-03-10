@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "lldap.fullname" . }}:{{ .Values.service.port }}']
+      args: ['{{ include "lldap.fullname" . }}:{{ .Values.services.ui.port }}']
   restartPolicy: Never

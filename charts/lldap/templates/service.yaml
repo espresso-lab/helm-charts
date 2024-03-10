@@ -5,6 +5,7 @@ metadata:
   {{- with .Values.services.ui.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
+  {{- end }}
   labels:
     {{- include "lldap.labels" . | nindent 4 }}
 spec:

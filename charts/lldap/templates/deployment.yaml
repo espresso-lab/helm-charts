@@ -37,10 +37,10 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: ui
-              containerPort: {{ .Values.service.ports.ui.port }}
+              containerPort: {{ .Values.services.ui.port }}
               protocol: TCP
             - name: ldap
-              containerPort: {{ .Values.service.ports.ldap.port }}
+              containerPort: {{ .Values.services.ldap.port }}
               protocol: TCP
           env:
             - name: LLDAP_LDAP_BASE_DN
