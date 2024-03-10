@@ -3,6 +3,16 @@ entries:
   cluster-blueprint:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-03-10T20:06:57.723280412Z"
+    description: A Helm chart for Kubernetes
+    digest: 9bcc1e8f1af550698a08477e1ff148fcde677247ffa3007eebad556a0364fe83
+    name: cluster-blueprint
+    type: application
+    urls:
+    - https://github.com/espresso-lab/helm-charts/releases/download/cluster-blueprint-0.1.11/cluster-blueprint-0.1.11.tgz
+    version: 0.1.11
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-03-10T20:00:36.433051375Z"
     description: A Helm chart for Kubernetes
     digest: 2b79c6459f0d98e513807834bda45ab2c676ba96b87545f275a0651cc44bc688
@@ -102,6 +112,16 @@ entries:
     - https://github.com/espresso-lab/helm-charts/releases/download/cluster-blueprint-0.1.1/cluster-blueprint-0.1.1.tgz
     version: 0.1.1
   homebridge:
+  - apiVersion: v2
+    appVersion: "2024-01-08"
+    created: "2024-03-10T20:06:57.911178745Z"
+    description: A Helm chart for Kubernetes
+    digest: 961b21c833d6f66e6215bba000e0dad3098e21a22b522eab8ed8c30b58b4fc04
+    name: homebridge
+    type: application
+    urls:
+    - https://github.com/espresso-lab/helm-charts/releases/download/homebridge-0.1.15/homebridge-0.1.15.tgz
+    version: 0.1.15
   - apiVersion: v2
     appVersion: "2024-01-08"
     created: "2024-03-10T20:00:36.548127022Z"
@@ -255,6 +275,16 @@ entries:
   lldap:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-03-10T20:06:58.098561416Z"
+    description: A Helm chart for Kubernetes
+    digest: df65679ec53d5c0e1a73d307edd465ef172b49c25f3dd0332b4a509314e4adc3
+    name: lldap
+    type: application
+    urls:
+    - https://github.com/espresso-lab/helm-charts/releases/download/lldap-0.1.8/lldap-0.1.8.tgz
+    version: 0.1.8
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-03-10T20:00:36.661323194Z"
     description: A Helm chart for Kubernetes
     digest: e91d31a521459f0281bd7062f79c8bf02020902d1b1eff9eef63d71037d5003b
@@ -333,4 +363,4 @@ entries:
     urls:
     - https://github.com/espresso-lab/helm-charts/releases/download/lldap-0.1.0/lldap-0.1.0.tgz
     version: 0.1.0
-generated: "2024-03-10T20:00:36.661461915Z"
+generated: "2024-03-10T20:06:58.098764846Z"
