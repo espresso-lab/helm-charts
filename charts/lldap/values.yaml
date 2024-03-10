@@ -67,3 +67,5 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+ldapBaseDN: "dc=example,dc=com" 
