@@ -16,13 +16,16 @@ podSecurityContext: {}
 
 securityContext: {}
 
-service:
-  ports:
+services:
+  ui:
     type: ClusterIP
-    ui:
-      port: 17170
-    ldap:
-      port: 3890
+    port: 17170
+    annotations: {}
+  ldap:
+    type: ClusterIP
+    port: 3890
+    annotations: {}
+    # metallb.universe.tf/address-pool: default
 
 ingress:
   enabled: false
@@ -69,3 +72,5 @@ tolerations: []
 affinity: {}
 
 ldapBaseDN: "dc=example,dc=com" 
+
+dualStack: false
