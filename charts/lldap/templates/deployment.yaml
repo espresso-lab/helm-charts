@@ -46,7 +46,7 @@ spec:
             - name: LLDAP_LDAP_BASE_DN
               value: {{ .Values.ldapBaseDN }}
             - name: LDAP_PORT
-              value: {{ .Values.services.ldap.port }}
+              value: {{ .Values.services.ldap.port | quote }}
           livenessProbe:
             {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:
