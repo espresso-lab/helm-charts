@@ -20,6 +20,7 @@ spec:
     - IPv4
     - IPv6
   ipFamilyPolicy: PreferDualStack
+  externalTrafficPolicy: Local
   {{- end }}
   selector:
     {{- include "lldap.selectorLabels" . | nindent 4 }}
