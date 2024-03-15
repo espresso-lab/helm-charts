@@ -3,6 +3,16 @@ entries:
   cluster-blueprint:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-03-15T19:49:08.137193546Z"
+    description: A Helm chart for Kubernetes
+    digest: 64b746640a374a15bff131ff9825ecf56fd692423109dd4d025dc3bb268e6d26
+    name: cluster-blueprint
+    type: application
+    urls:
+    - https://github.com/espresso-lab/helm-charts/releases/download/cluster-blueprint-0.1.16/cluster-blueprint-0.1.16.tgz
+    version: 0.1.16
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-03-15T14:01:02.638228448Z"
     description: A Helm chart for Kubernetes
     digest: 2f959430e6eb15c3e108730aacb992120b3f65ddbb0e1eaac0e29e4072e57b6f
@@ -154,6 +164,16 @@ entries:
   ddns-route53:
   - apiVersion: v2
     appVersion: 2.11.0
+    created: "2024-03-15T19:49:08.281147524Z"
+    description: A Helm chart for Kubernetes
+    digest: 050fef0fa8db21c2ac09cf070bacf62decdffcd5aed5fde500084c7c47339618
+    name: ddns-route53
+    type: application
+    urls:
+    - https://github.com/espresso-lab/helm-charts/releases/download/ddns-route53-0.1.2/ddns-route53-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 2.11.0
     created: "2024-03-15T14:01:02.750251781Z"
     description: A Helm chart for Kubernetes
     digest: 585ada24121126bdd0c32c89ebd8943da67a099316bd33db7fbe6cdf28882062
@@ -163,6 +183,16 @@ entries:
     - https://github.com/espresso-lab/helm-charts/releases/download/ddns-route53-0.1.1/ddns-route53-0.1.1.tgz
     version: 0.1.1
   homebridge:
+  - apiVersion: v2
+    appVersion: "2024-01-08"
+    created: "2024-03-15T19:49:08.452305789Z"
+    description: A Helm chart for Kubernetes
+    digest: 07c1a1f25fad5e91db55bf2876c3d7d348890b6702d4627a09934cbcbf336de8
+    name: homebridge
+    type: application
+    urls:
+    - https://github.com/espresso-lab/helm-charts/releases/download/homebridge-0.1.20/homebridge-0.1.20.tgz
+    version: 0.1.20
   - apiVersion: v2
     appVersion: "2024-01-08"
     created: "2024-03-15T14:01:02.858622755Z"
@@ -363,7 +393,28 @@ entries:
     urls:
     - https://github.com/espresso-lab/helm-charts/releases/download/homebridge-0.1.0/homebridge-0.1.0.tgz
     version: 0.1.0
+  kanidm:
+  - apiVersion: v2
+    appVersion: "2024-01-08"
+    created: "2024-03-15T19:49:08.696061567Z"
+    description: A Helm chart for Kubernetes
+    digest: e1af462f0dc3abe15eb51c6a5f64d643a5d2cf3f8d3ca17ea8221122d2f77f72
+    name: kanidm
+    type: application
+    urls:
+    - https://github.com/espresso-lab/helm-charts/releases/download/kanidm-0.1.0/kanidm-0.1.0.tgz
+    version: 0.1.0
   lldap:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-03-15T19:49:08.888222227Z"
+    description: A Helm chart for Kubernetes
+    digest: 1aab05528cc1fb94f654514d418ee5dd171b3f9b2dbd604c4e4ee7e0171a78c3
+    name: lldap
+    type: application
+    urls:
+    - https://github.com/espresso-lab/helm-charts/releases/download/lldap-0.1.12/lldap-0.1.12.tgz
+    version: 0.1.12
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2024-03-11T10:47:56.411991062Z"
@@ -484,4 +535,4 @@ entries:
     urls:
     - https://github.com/espresso-lab/helm-charts/releases/download/lldap-0.1.0/lldap-0.1.0.tgz
     version: 0.1.0
-generated: "2024-03-15T14:01:02.858969977Z"
+generated: "2024-03-15T19:49:08.888619217Z"
