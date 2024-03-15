@@ -53,6 +53,7 @@ spec:
           volumeMounts:
               - name: config
                 mountPath: /data/server.toml
+                subPath: server.toml
               - name: data
                 mountPath: /data
                 readOnly: false
