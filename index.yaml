@@ -3,6 +3,16 @@ entries:
   cluster-blueprint:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-03-15T14:01:02.638228448Z"
+    description: A Helm chart for Kubernetes
+    digest: 2f959430e6eb15c3e108730aacb992120b3f65ddbb0e1eaac0e29e4072e57b6f
+    name: cluster-blueprint
+    type: application
+    urls:
+    - https://github.com/espresso-lab/helm-charts/releases/download/cluster-blueprint-0.1.15/cluster-blueprint-0.1.15.tgz
+    version: 0.1.15
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-03-11T10:47:56.133556672Z"
     description: A Helm chart for Kubernetes
     digest: 0a0f7c1f73b600ab0912bbe0a915242479eccbc01b7e8b2d456ab1e8b348b30b
@@ -141,7 +151,28 @@ entries:
     urls:
     - https://github.com/espresso-lab/helm-charts/releases/download/cluster-blueprint-0.1.1/cluster-blueprint-0.1.1.tgz
     version: 0.1.1
+  ddns-route53:
+  - apiVersion: v2
+    appVersion: 2.11.0
+    created: "2024-03-15T14:01:02.750251781Z"
+    description: A Helm chart for Kubernetes
+    digest: 585ada24121126bdd0c32c89ebd8943da67a099316bd33db7fbe6cdf28882062
+    name: ddns-route53
+    type: application
+    urls:
+    - https://github.com/espresso-lab/helm-charts/releases/download/ddns-route53-0.1.1/ddns-route53-0.1.1.tgz
+    version: 0.1.1
   homebridge:
+  - apiVersion: v2
+    appVersion: "2024-01-08"
+    created: "2024-03-15T14:01:02.858622755Z"
+    description: A Helm chart for Kubernetes
+    digest: 45d78073bf504a7b50b357ff0cf797df593f44d68a8cadc6f637638ea02d134d
+    name: homebridge
+    type: application
+    urls:
+    - https://github.com/espresso-lab/helm-charts/releases/download/homebridge-0.1.19/homebridge-0.1.19.tgz
+    version: 0.1.19
   - apiVersion: v2
     appVersion: "2024-01-08"
     created: "2024-03-11T10:47:56.263974943Z"
@@ -453,4 +484,4 @@ entries:
     urls:
     - https://github.com/espresso-lab/helm-charts/releases/download/lldap-0.1.0/lldap-0.1.0.tgz
     version: 0.1.0
-generated: "2024-03-11T10:47:56.412295764Z"
+generated: "2024-03-15T14:01:02.858969977Z"
