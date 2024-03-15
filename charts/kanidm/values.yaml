@@ -30,7 +30,7 @@ securityContext:
 service:
   type: ClusterIP
   ports:
-    https: 8443
+    http: 8080
     ldaps: 3636
 
 ingress:
@@ -73,13 +73,11 @@ persistence:
 livenessProbe:
   httpGet:
     path: /
-    port: https
-    scheme: HTTPS
+    port: http
 readinessProbe:
   httpGet:
     path: /
-    port: https
-    scheme: HTTPS
+    port: http
 
 # Additional volumes on the output Deployment definition.
 volumes: []
