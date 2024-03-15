@@ -49,8 +49,8 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args: [ "kanidmd", "server", "-c", "/config/server.toml" ]
           ports:
-            - name: http
-              containerPort: {{ .Values.service.ports.http }}
+            - name: https
+              containerPort: {{ .Values.service.ports.https }}
               protocol: TCP
             - name: ldaps
               containerPort: {{ .Values.service.ports.ldaps }}
