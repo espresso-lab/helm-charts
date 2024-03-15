@@ -14,7 +14,7 @@ data:
         #   TLS certificates. If set to 636 you may require
         #   the NET_BIND_SERVICE capability.
         #   Defaults to "" (disabled)
-        # ldapbindaddress = "[::]:3636"
+        ldapbindaddress = "[::]:3636"
         #
         #   HTTPS requests can be reverse proxied by a loadbalancer.
         #   To preserve the original IP of the caller, these systems
@@ -59,7 +59,7 @@ data:
         #   NOTE: this can be overridden by the environment variable
         #   `KANIDM_LOG_LEVEL` at runtime
         #   Defaults to "info"
-        # log_level = "debug"
+        log_level = "debug"
         #
         #   The DNS domain name of the server. This is used in a
         #   number of security-critical contexts
@@ -100,4 +100,4 @@ data:
         #   (it's very similar to the standard cron syntax, it just allows to specify the seconds
         #   at the beginning and the year at the end)
         #   Number of backups to keep (default 7)
-        # versions = 7
+        # versions = 
