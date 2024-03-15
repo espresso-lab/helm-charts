@@ -26,7 +26,7 @@ spec:
           value: "*/15 * * * *"
         - name: ddns.aws.access_key_id
           value: ""
-        - name: ddns.aws.access_key_id
+        - name: ddns.aws.secret_access_key
           value: ""
         - name: ddns.aws.route53.hosted_zone_id
           value: "ABCDE"
