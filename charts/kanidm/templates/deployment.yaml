@@ -48,8 +48,8 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - name: https
-              containerPort: {{ .Values.service.ports.https }}
+            - name: http
+              containerPort: {{ .Values.service.ports.http }}
               protocol: TCP
             - name: ldaps
               containerPort: {{ .Values.service.ports.ldaps }}

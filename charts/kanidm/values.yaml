@@ -30,7 +30,7 @@ securityContext:
 service:
   type: ClusterIP
   ports:
-    https: 8443
+    http: 8443
     ldaps: 3636
 
 ingress:

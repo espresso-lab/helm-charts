@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "kanidm.fullname" . }}:{{ .Values.service.ports.https }}']
+      args: ['{{ include "kanidm.fullname" . }}:{{ .Values.service.ports.http }}']
   restartPolicy: Never

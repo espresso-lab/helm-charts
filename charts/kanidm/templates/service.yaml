@@ -7,10 +7,10 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.ports.https }}
-      targetPort: https
+    - port: {{ .Values.service.ports.http }}
+      targetPort: http
       protocol: TCP
-      name: https
+      name: http
     - port: {{ .Values.service.ports.ldaps }}
       targetPort: ldaps
       protocol: TCP
