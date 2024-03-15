@@ -59,7 +59,7 @@ data:
         #   NOTE: this can be overridden by the environment variable
         #   `KANIDM_LOG_LEVEL` at runtime
         #   Defaults to "info"
-        log_level = "debug"
+        # log_level = "info"
         #
         #   The DNS domain name of the server. This is used in a
         #   number of security-critical contexts
