@@ -396,6 +396,16 @@ entries:
   kanidm:
   - apiVersion: v2
     appVersion: "2024-01-08"
+    created: "2024-03-15T23:21:00.814172318Z"
+    description: A Helm chart for Kubernetes
+    digest: bf9e24af5195d8ef4c275f05c593ff05bcb0d665efe4093b6807bdfb162b7bf2
+    name: kanidm
+    type: application
+    urls:
+    - https://github.com/espresso-lab/helm-charts/releases/download/kanidm-0.1.19/kanidm-0.1.19.tgz
+    version: 0.1.19
+  - apiVersion: v2
+    appVersion: "2024-01-08"
     created: "2024-03-15T23:10:40.37080296Z"
     description: A Helm chart for Kubernetes
     digest: cead6771b7fb2d386e7212f46d3daff9aa451d76e3b0ca83c0bb2c7944a5e8f9
@@ -715,4 +725,4 @@ entries:
     urls:
     - https://github.com/espresso-lab/helm-charts/releases/download/lldap-0.1.0/lldap-0.1.0.tgz
     version: 0.1.0
-generated: "2024-03-15T23:10:40.371075254Z"
+generated: "2024-03-15T23:21:00.814424667Z"
