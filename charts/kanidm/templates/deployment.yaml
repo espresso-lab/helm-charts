@@ -51,12 +51,12 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- if .Values.persistence.enabled }}
           volumeMounts:
-              - name: config
-                mountPath: /config/server.toml
-                subPath: server.toml
               - name: data
                 mountPath: /data
                 readOnly: false
+              - name: config
+                mountPath: /data/server.toml
+                subPath: server.toml
             {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
             {{- end }}
