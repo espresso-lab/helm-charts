@@ -52,7 +52,7 @@ spec:
           {{- if .Values.persistence.enabled }}
           volumeMounts:
               - name: config
-                mountPath: /data/server.toml
+                mountPath: /config/server.toml
                 subPath: server.toml
               - name: data
                 mountPath: /data
