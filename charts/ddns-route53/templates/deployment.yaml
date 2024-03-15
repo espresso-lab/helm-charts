@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "ddns-route53.fullname" . }}
+  labels:
+    {{- include "ddns-route53.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "ddns-route53.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "ddns-route53.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: TZ
+              value: "Europe/Berlin"
+            - name: SCHEDULE
+              value: "{{ .Values.ddns.schedule }}"
+            - name: LOG_LEVEL
+              value: "info"
+            - name: LOG_JSON
+              value: "false"
+            - name: DDNSR53_CREDENTIALS_ACCESSKEYID
+              value: "{{ .Values.ddns.aws.access_key_id }}"
+            - name: DDNSR53_CREDENTIALS_SECRETACCESSKEY
+              value: "{{ .Values.ddns.aws.secret_access_key }}"
+            - name: DDNSR53_ROUTE53_HOSTEDZONEID
+              value: "{{ .Values.ddns.aws.route53.hosted_zone_id }}"
+            - name: DDNSR53_ROUTE53_RECORDSSET_0_NAME
+              value: "{{ .Values.ddns.aws.route53.name }}"
+            - name: DDNSR53_ROUTE53_RECORDSSET_0_TYPE
+              value: "{{ .Values.ddns.aws.route53.type }}"
+            - name: DDNSR53_ROUTE53_RECORDSSET_0_TTL
+              value: "{{ .Values.ddns.aws.route53.ttl }}"
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
