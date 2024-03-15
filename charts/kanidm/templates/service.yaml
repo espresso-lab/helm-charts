@@ -5,8 +5,8 @@ metadata:
   labels:
     {{- include "kanidm.labels" . | nindent 4 }}
   annotations:
-    # traefik.ingress.kubernetes.io/service.serversscheme: https # Set backend is HTTPS
-    # traefik.ingress.kubernetes.io/service.serverstransport: {{ include "kanidm.fullname" . }}-transport@kubernetescrd
+    #traefik.ingress.kubernetes.io/service.serversscheme: https # Set backend is HTTPS
+    #traefik.ingress.kubernetes.io/service.serverstransport: kube-system-https-transport@kubernetescrd
 spec:
   type: {{ .Values.service.type }}
   ports:
