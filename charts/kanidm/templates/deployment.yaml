@@ -30,6 +30,17 @@ spec:
       {{- end }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+        - name: generate-cert
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          command: ['sh', '-c', "kanidmd cert-generate"]
+          volumeMounts:
+            - name: data
+              mountPath: /data
+            - name: config
+              mountPath: /data/server.toml
+              subPath: server.toml
+              readOnly: true
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -53,10 +64,10 @@ spec:
           volumeMounts:
               - name: data
                 mountPath: /data
-                readOnly: false
               - name: config
                 mountPath: /data/server.toml
                 subPath: server.toml
+                readOnly: true
             {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
             {{- end }}
