@@ -38,10 +38,6 @@ spec:
               value: "info"
             - name: LOG_JSON
               value: "false"
-            - name: DDNSR53_CREDENTIALS_ACCESSKEYID
-              value: "{{ .Values.ddns.aws.access_key_id }}"
-            - name: DDNSR53_CREDENTIALS_SECRETACCESSKEY
-              value: "{{ .Values.ddns.aws.secret_access_key }}"
             - name: DDNSR53_ROUTE53_HOSTEDZONEID
               value: "{{ .Values.ddns.aws.route53.hosted_zone_id }}"
             - name: DDNSR53_ROUTE53_RECORDSSET_0_NAME
@@ -50,6 +46,23 @@ spec:
               value: "{{ .Values.ddns.aws.route53.type }}"
             - name: DDNSR53_ROUTE53_RECORDSSET_0_TTL
               value: "{{ .Values.ddns.aws.route53.ttl }}"
+            {{- if .Values.ddns.aws.existingSecret }}
+            - name: DDNSR53_CREDENTIALS_ACCESSKEYID
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ .Values.ddns.aws.existingSecret }}"
+                  key: accessKeyId
+            - name: DDNSR53_CREDENTIALS_SECRETACCESSKEY
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ .Values.ddns.aws.existingSecret }}"
+                  key: secret
+            {{- else }}
+            - name: DDNSR53_CREDENTIALS_ACCESSKEYID
+              value: "{{ .Values.ddns.aws.access_key_id }}"
+            - name: DDNSR53_CREDENTIALS_SECRETACCESSKEY
+              value: "{{ .Values.ddns.aws.secret_access_key }}"
+            {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

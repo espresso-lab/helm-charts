@@ -13,6 +13,7 @@ podLabels: {}
 ddns:
   schedule: "*/15 * * * *"
   aws:
+    existingSecret: "" # Create a secret with accessKeyId and secret instead
     access_key_id: ""
     secret_access_key: ""
     route53:
