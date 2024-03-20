@@ -164,6 +164,16 @@ entries:
   ddns-route53:
   - apiVersion: v2
     appVersion: 2.11.0
+    created: "2024-03-20T18:40:54.616626426Z"
+    description: A Helm chart for Kubernetes
+    digest: 0a06c64cbab3ed9afc58d6e0d22369e02a58710550277b6535948187248e9f54
+    name: ddns-route53
+    type: application
+    urls:
+    - https://github.com/espresso-lab/helm-charts/releases/download/ddns-route53-0.1.3/ddns-route53-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: 2.11.0
     created: "2024-03-15T19:49:08.281147524Z"
     description: A Helm chart for Kubernetes
     digest: 050fef0fa8db21c2ac09cf070bacf62decdffcd5aed5fde500084c7c47339618
@@ -745,4 +755,4 @@ entries:
     urls:
     - https://github.com/espresso-lab/helm-charts/releases/download/lldap-0.1.0/lldap-0.1.0.tgz
     version: 0.1.0
-generated: "2024-03-15T23:42:34.720889214Z"
+generated: "2024-03-20T18:40:54.616821309Z"
