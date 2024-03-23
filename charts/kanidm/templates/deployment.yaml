@@ -14,7 +14,6 @@ data:
             proxy_ssl_server_name on;
         }
     }
-
 --- 
 
 apiVersion: apps/v1
@@ -49,12 +48,12 @@ spec:
       initContainers:
         - name: generate-cert
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          command: ['sh', '-c', "kanidmd cert-generate -c /config/server.toml"]
+          command: ['sh', '-c', "kanidmd cert-generate"]
           volumeMounts:
             - name: data
               mountPath: /data
             - name: config
-              mountPath: /config/server.toml
+              mountPath: /data/server.toml
               subPath: server.toml
               readOnly: true
       containers:
@@ -63,7 +62,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          args: [ "kanidmd", "server", "-c", "/config/server.toml" ]
+          args: [ "kanidmd", "server" ]
           ports:
             - name: https
               containerPort: 8443
@@ -88,7 +87,7 @@ spec:
               - name: data
                 mountPath: /data
               - name: config
-                mountPath: /config/server.toml
+                mountPath: /data/server.toml
                 subPath: server.toml
                 readOnly: true
             {{- with .Values.volumeMounts }}
@@ -101,14 +100,14 @@ spec:
             - name: http
               containerPort: {{ .Values.service.ports.http }}
               protocol: TCP
-          # livenessProbe:
-          #     httpGet:
-          #       path: /
-          #       port: {{ .Values.service.ports.http }}
-          # readinessProbe:
-          #   httpGet:
-          #       path: /
-          #       port: {{ .Values.service.ports.http }}
+          livenessProbe:
+              httpGet:
+                path: /
+                port: {{ .Values.service.ports.http }}
+          readinessProbe:
+            httpGet:
+                path: /
+                port: {{ .Values.service.ports.http }}
           volumeMounts:
             - name: config-nginx
               mountPath: /etc/nginx/conf.d/default.conf
