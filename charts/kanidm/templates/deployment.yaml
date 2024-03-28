@@ -72,12 +72,12 @@ spec:
               protocol: TCP
           livenessProbe:
               httpGet:
-                path: /
+                path: /status
                 port: 8443
                 scheme: HTTPS
           readinessProbe:
             httpGet:
-                path: /
+                path: /status
                 port: 8443
                 scheme: HTTPS
           resources:
