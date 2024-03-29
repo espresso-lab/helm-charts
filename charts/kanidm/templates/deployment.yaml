@@ -100,6 +100,14 @@ spec:
             - name: forward-auth
               containerPort: {{ .Values.service.ports.forwardAuth }}
               protocol: TCP
+          livenessProbe:
+              httpGet:
+                path: /
+                port: {{ .Values.service.ports.forwardAuth }}
+          readinessProbe:
+            httpGet:
+                path: /
+                port: {{ .Values.service.ports.forwardAuth }}
         - name: nginx
           image: nginx:1.25.0-alpine
           ports:
