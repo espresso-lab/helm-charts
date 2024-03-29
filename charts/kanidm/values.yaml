@@ -32,6 +32,7 @@ service:
   ports:
     http: 8080
     ldaps: 3636
+    forwardAuth: 8081
 
 ingress:
   enabled: false
