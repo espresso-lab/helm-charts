@@ -95,7 +95,7 @@ spec:
             {{- end }}
           {{- end }}
         - name: auth
-          image: ghcr.io/espresso-labs/traefik-oidc-forward-auth-middleware:latest
+          image: ghcr.io/espresso-lab/traefik-oidc-forward-auth-middleware:latest
           ports:
             - name: forward-auth
               containerPort: {{ .Values.service.ports.forwardAuth }}
