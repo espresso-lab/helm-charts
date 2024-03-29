@@ -71,25 +71,25 @@ spec:
               containerPort: {{ .Values.service.ports.ldaps }}
               protocol: TCP
           livenessProbe:
-              httpGet:
-                path: /status
-                port: 8443
-                scheme: HTTPS
+            httpGet:
+              path: /status
+              port: 8443
+              scheme: HTTPS
           readinessProbe:
             httpGet:
-                path: /status
-                port: 8443
-                scheme: HTTPS
+              path: /status
+              port: 8443
+              scheme: HTTPS
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- if .Values.persistence.enabled }}
           volumeMounts:
-              - name: data
-                mountPath: /data
-              - name: config
-                mountPath: /data/server.toml
-                subPath: server.toml
-                readOnly: true
+            - name: data
+              mountPath: /data
+            - name: config
+              mountPath: /data/server.toml
+              subPath: server.toml
+              readOnly: true
             {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
             {{- end }}

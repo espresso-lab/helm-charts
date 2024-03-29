@@ -1,9 +1,9 @@
 replicaCount: 1
 
 image:
-  repository: kanidm/server
-  pullPolicy: IfNotPresent
-  tag: "1.1.0-rc.16"
+  repository: ghcr.io/espresso-lab/oidc-forward-auth-middleware
+  pullPolicy: Always
+  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -23,9 +23,7 @@ securityContext:
 service:
   type: ClusterIP
   ports:
-    http: 8080
-    ldaps: 3636
-    forwardAuth: 3000
+    http: 3000
 
 ingress:
   enabled: false
@@ -47,20 +45,13 @@ ingress:
 resources:
   {}
 
-persistence:
-  enabled: true
-  annotations: {}
-  accessMode: ReadWriteOnce
-  size: 2Gi
-  storageClass: ""
-
 livenessProbe:
   httpGet:
-    path: /
+    path: /status
     port: http
 readinessProbe:
   httpGet:
-    path: /
+    path: /status
     port: http
 
 # Additional volumes on the output Deployment definition.
@@ -74,5 +65,3 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
-domain: "chart.example.com"
