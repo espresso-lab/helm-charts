@@ -43,3 +43,19 @@ spec:
           {{- end }}
     {{- end }}
 {{- end }}
+---
+apiVersion: "traefik.containo.us/v1alpha1"
+kind      : "Middleware"
+metadata:
+  name     : "oidc-forward-auth-middleware"
+  namespace: "kube-system"
+spec: 
+  forwardAuth: 
+    address: "http://{{ $values.namespace }}.oidc-forward-auth-middleware.svc.cluster.local:{{ $svcPort }}/verify"
+    authResponseHeaders: [
+      "Remote-User",
+      "Remote-Name",
+      "Remote-Email",
+      "Remote-Groups"
+    ]
+    trustForwardHeader: true

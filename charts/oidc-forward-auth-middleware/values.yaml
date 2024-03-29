@@ -65,3 +65,5 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+namespace: espresso-lab
