@@ -102,11 +102,11 @@ spec:
               protocol: TCP
           livenessProbe:
               httpGet:
-                path: /
+                path: /status
                 port: {{ .Values.service.ports.forwardAuth }}
           readinessProbe:
             httpGet:
-                path: /
+                path: /status
                 port: {{ .Values.service.ports.forwardAuth }}
         - name: nginx
           image: nginx:1.25.0-alpine
