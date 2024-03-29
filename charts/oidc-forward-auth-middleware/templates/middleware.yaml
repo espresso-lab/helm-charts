@@ -1,0 +1,20 @@
+{{- $svcPort := .Values.service.ports.http -}}
+apiVersion: "traefik.containo.us/v1alpha1"
+kind      : "Middleware"
+metadata:
+  name     : "oidc-forward-auth-middleware"
+  namespace: "kube-system"
+spec: 
+  forwardAuth: 
+    address: "http://{{ .Release.Namespace }}.oidc-forward-auth-middleware.svc.cluster.local:{{ $svcPort }}/verify"
+    authResponseHeaders: [
+      "Authorization",
+      "Set-Cookie",
+      "Location"
+    ]
+    authRequestHeaders: [
+      "Accept",
+      "Cookie",
+      "Authorization"
+    ]
+    trustForwardHeader: true
