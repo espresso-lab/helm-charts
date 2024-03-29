@@ -6,8 +6,8 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.ports.forwardAuth }}
-      targetPort: forwardAuth
+      targetPort: forward-auth
       protocol: TCP
-      name: forwardAuth
+      name: forward-auth
   selector:
     {{- include "kanidm.selectorLabels" . | nindent 4 }}

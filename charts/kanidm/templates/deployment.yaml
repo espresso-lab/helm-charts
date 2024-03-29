@@ -97,7 +97,7 @@ spec:
         - name: auth
           image: ghcr.io/espresso-labs/traefik-oidc-forward-auth-middleware:latest
           ports:
-            - name: forwardAuth
+            - name: forward-auth
               containerPort: {{ .Values.service.ports.forwardAuth }}
               protocol: TCP
         - name: nginx
