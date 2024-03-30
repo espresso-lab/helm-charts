@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: ghcr.io/espresso-lab/oidc-forward-auth-middleware
-  pullPolicy: Always
+  pullPolicy: Always # TODO: Change in prod
   tag: "latest"
 
 imagePullSecrets: []
@@ -12,19 +12,26 @@ fullnameOverride: ""
 podAnnotations: {}
 podLabels: {}
 
-podSecurityContext:
-  {}
+podSecurityContext: {}
 
-securityContext:
-  {}
+securityContext: {}
 
 service:
   type: ClusterIP
   ports:
     http: 3000
 
-resources:
-  {}
+resources: {}
+
+config:
+  sessionCookieName: x_forward_auth_session
+
+oidcProvider:
+  # - ingressHostname: exmaple.com
+  #   issuerUrl: https://id.example.com/oauth/app1
+  #   clientId: app1
+  #   clientSecret: mysecretpassword
+  #   scopes: ["email", "profile"]
 
 # Additional volumes on the output Deployment definition.
 volumes: []
@@ -37,5 +44,3 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
-namespace: espresso-lab
