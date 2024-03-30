@@ -9,8 +9,6 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
-dnsPolicy: ClusterFirst
-
 podAnnotations: {}
 podLabels: {}
 
