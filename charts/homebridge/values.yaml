@@ -73,10 +73,12 @@ livenessProbe:
   httpGet:
     path: /
     port: http
+  initialDelaySeconds: 10
 readinessProbe:
   httpGet:
     path: /
     port: http
+  initialDelaySeconds: 10
 
 
 # Additional volumes on the output Deployment definition.
