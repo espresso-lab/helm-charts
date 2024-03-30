@@ -72,11 +72,14 @@ persistence:
 livenessProbe:
   httpGet:
     path: /
-    port: http
+    port: 8443
+    scheme: HTTPS
 readinessProbe:
   httpGet:
     path: /
-    port: http
+    port: 8443
+    scheme: HTTPS
+
 
 # Additional volumes on the output Deployment definition.
 volumes: []
