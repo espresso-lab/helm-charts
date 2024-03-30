@@ -6,7 +6,7 @@ metadata:
   namespace: "kube-system"
 spec: 
   forwardAuth: 
-    address: "http://{{ .Release.Namespace }}.oidc-forward-auth-middleware.svc.cluster.local:{{ $svcPort }}/verify"
+    address: "http://oidc-forward-auth-middleware.{{ .Release.Namespace }}.svc.cluster.local:{{ $svcPort }}/verify"
     authResponseHeaders: [
       "Authorization",
       "Set-Cookie",
