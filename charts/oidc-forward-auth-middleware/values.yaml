@@ -25,17 +25,17 @@ resources: {}
 config:
   sessionCookieName: x_forward_auth_session
 
-oidcProvider:
+oidcProviders:
   # - ingressHostname: example.com
   #   issuerUrl: https://id.example.com/oauth/app1
   #   clientId: app1
   #   clientSecret: mysecretpassword
   #   scopes: ["email", "profile"]
-  #   existingSecret: oidc-config
+  #   existingSecret: oidc-config # Provide a secret with fields clientId, clientSecret
 
 envExtra:
-  # - name: TEST
-  #   value: ABCD
+  - name: TEST
+    value: ABCD
 
 volumes: []
 
