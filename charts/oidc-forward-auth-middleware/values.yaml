@@ -1,4 +1,4 @@
-replicaCount: 1
+replicaCount: 1 # TODO: Change to 2
 
 image:
   repository: ghcr.io/espresso-lab/oidc-forward-auth-middleware
@@ -18,8 +18,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  ports:
-    http: 3000
+  port: 3000
 
 resources: {}
 
@@ -27,11 +26,12 @@ config:
   sessionCookieName: x_forward_auth_session
 
 oidcProvider:
-  # - ingressHostname: exmaple.com
+  # - ingressHostname: example.com
   #   issuerUrl: https://id.example.com/oauth/app1
   #   clientId: app1
   #   clientSecret: mysecretpassword
   #   scopes: ["email", "profile"]
+  #   existingSecret: oidc-config
 
 envExtra:
   - name: TEST

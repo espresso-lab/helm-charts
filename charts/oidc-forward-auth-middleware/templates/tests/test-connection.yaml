@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "oidc-forward-auth-middleware.fullname" . }}:{{ .Values.service.ports.http }}']
+      args: ['{{ include "oidc-forward-auth-middleware.fullname" . }}:{{ .Values.service.port }}']
   restartPolicy: Never

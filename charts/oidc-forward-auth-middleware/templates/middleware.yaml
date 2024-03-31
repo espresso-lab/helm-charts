@@ -1,4 +1,4 @@
-{{- $svcPort := .Values.service.ports.http -}}
+{{- $svcPort := .Values.service.port -}}
 apiVersion: "traefik.containo.us/v1alpha1"
 kind      : "Middleware"
 metadata:

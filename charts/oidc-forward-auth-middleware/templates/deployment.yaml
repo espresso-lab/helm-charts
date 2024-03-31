@@ -34,19 +34,23 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-            {{- toYaml .Values.envExtra | nindent 12 }}
+            - name: FORWARD_AUTH_COOKIE
+              value: {{ .Values.config.sessionCookieName }}
+            {{- with .Values.envExtra }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
           ports:
             - name: http
-              containerPort: {{ .Values.service.ports.http }}
+              containerPort: {{ .Values.service.port }}
               protocol: TCP
           livenessProbe:
             httpGet:
               path: /status
-              port: {{ .Values.service.ports.http }}
+              port: {{ .Values.service.port }}
           readinessProbe:
             httpGet:
               path: /status
-              port: {{ .Values.service.ports.http }}
+              port: {{ .Values.service.port }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
