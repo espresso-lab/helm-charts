@@ -34,8 +34,8 @@ oidcProviders:
   #   existingSecret: oidc-config # Provide a secret with fields clientId, clientSecret
 
 envExtra:
-  - name: TEST
-    value: ABCD
+  # - name: EXAMPLE_ENV
+  #   value: ABCD
 
 volumes: []
 
