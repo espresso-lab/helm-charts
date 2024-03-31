@@ -34,8 +34,8 @@ oidcProvider:
   #   existingSecret: oidc-config
 
 envExtra:
-  - name: TEST
-    value: ABCD
+  # - name: TEST
+  #   value: ABCD
 
 volumes: []
 
