@@ -59,7 +59,7 @@ data:
         #   NOTE: this can be overridden by the environment variable
         #   `KANIDM_LOG_LEVEL` at runtime
         #   Defaults to "info"
-        # log_level = "info"
+        # log_level = "{{ .Values.config.logLevel }}"
         #
         #   The DNS domain name of the server. This is used in a
         #   number of security-critical contexts
@@ -77,7 +77,7 @@ data:
         #   webauthn, oauth tokens, and more.
         #   If you change this value you *must* run
         #   `kanidmd domain_name_change` immediately after.
-        domain = "{{ index .Values "domain" }}"
+        domain = "{{ .Values.config.domain }}"
         #
         #   The origin for webauthn. This is the url to the server,
         #   with the port included if it is non-standard (any port
@@ -85,7 +85,7 @@ data:
         #   domain name you configure above. If these two items are
         #   not consistent, the server WILL refuse to start!
         #   origin = "https://idm.example.com"
-        origin = "https://{{ index .Values "domain" }}"
+        origin = "https://{{ .Values.config.domain }}"
         #
         # [online_backup]
         #   The path to the output folder for online backups

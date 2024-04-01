@@ -14,18 +14,19 @@ podLabels: {}
 
 hostNetwork: false
 
-podSecurityContext:
-  {}
+podSecurityContext: {}
 
-securityContext:
-  {}
+securityContext: {}
+
+config:
+  logLevel: "info" # info, debug, trace
+  domain: "chart.example.com"
 
 service:
   type: ClusterIP
   ports:
     http: 8080
     ldaps: 3636
-    forwardAuth: 3000
 
 ingress:
   enabled: false
@@ -44,8 +45,7 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-resources:
-  {}
+resources: {}
 
 persistence:
   enabled: true
@@ -74,5 +74,3 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
-domain: "chart.example.com"
