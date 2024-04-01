@@ -34,7 +34,7 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-            - name: FORWARD_AUTH_COOKIE_NAME
+            - name: FORWARD_AUTH_COOKIE
               value: {{ .Values.config.sessionCookieName }}
             {{- range $i, $value := .Values.oidcProviders }}
             - name: "OIDC_PROVIDER_{{ $i }}_HOSTNAME"
