@@ -33,7 +33,7 @@ oidcProviders:
   #   scopes: ["email", "profile"]
   #   existingSecret: oidc-config # Provide a secret with fields clientId, clientSecret
 
-envExtra:
+extraEnvVars:
   # - name: EXAMPLE_ENV
   #   value: ABCD
 
