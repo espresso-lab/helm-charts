@@ -69,6 +69,7 @@ spec:
               mountPath: /homebridge/startup.sh
               subPath: startup.sh
               readOnly: false
+              defaultMode: 493
             {{- end }}
             {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
