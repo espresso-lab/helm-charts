@@ -77,7 +77,7 @@ spec:
         {{- if .Values.authDisabled }}
         - name: startup
           configMap:
-            claimName: {{ include "homebridge.fullname" . }}-startup
+            name: {{ include "homebridge.fullname" . }}-startup
         {{- end }}
         {{- if .Values.persistence.enabled }}
         - name: data
