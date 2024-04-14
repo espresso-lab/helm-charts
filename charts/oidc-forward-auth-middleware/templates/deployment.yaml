@@ -61,8 +61,8 @@ spec:
             - name: "OIDC_PROVIDER_{{ $i }}_SCOPES"
               value: {{ join ", " $value.scopes }}
             {{- end }}
-            {{- if .Values.envExtra }}
-            {{- toYaml .Values.envExtra | nindent 12 }}
+            {{- if .Values.extraEnvVars }}
+            {{- toYaml .Values.extraEnvVars | nindent 12 }}
             {{- end }}
           ports:
             - name: http

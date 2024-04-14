@@ -56,6 +56,10 @@ spec:
             {{- toYaml . | nindent 12 }}
             {{- end }}
           {{- end }}
+          {{- if .Values.extraEnvVars }}
+          env:
+            {{- toYaml .Values.extraEnvVars | nindent 12 }}
+          {{- end }}
       {{- if .Values.persistence.enabled }}
       volumes:
         - name: data

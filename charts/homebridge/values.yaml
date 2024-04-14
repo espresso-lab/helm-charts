@@ -49,6 +49,10 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
+extraEnvVars:
+  # - name: TZ
+  #   value: Europe/Berlin
+
 resources:
   {}
   # We usually recommend not to specify default resources and to leave this as a conscious
