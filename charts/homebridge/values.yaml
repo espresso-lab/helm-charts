@@ -15,8 +15,6 @@ podLabels: {}
 hostNetwork: true
 dnsPolicy: ClusterFirstWithHostNet
 
-authDisabled: true
-
 podSecurityContext:
   {}
   # fsGroup: 2000
@@ -50,6 +48,10 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+
+extraEnvVars:
+  TZ: "Europe/Berlin"
+  HOMEBRIDGE_INSECURE: "1"
 
 resources:
   {}

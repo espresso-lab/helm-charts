@@ -1,14 +1,16 @@
-{{- if .Values.authDisabled }}
+{{- if .Values.extraEnvVars}}
 apiVersion: v1
-kind: ConfigMap
+kind: ConfigMap 
 metadata:
-  name: {{ include "homebridge.fullname" . }}-startup
+  name: {{ include "homebridge.fullname" . }}-cm
+  labels:
+    {{- include "homebridge.labels" . | nindent 4 }}
 data:
-  startup.sh: |-
-    #!/bin/sh
-    jq 'if (.platforms[0] | has("auth") | not) or (.platforms[0].auth != "none") then .platforms[0] += { "auth": "none" } else . end' config.json > temp.json && mv temp.json config.json
---- 
+  {{- range $key, $value := .Values.extraEnvVars}}
+  {{ $key }}: {{ $value | quote }}
+  {{- end }}
 {{- end }}
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -58,36 +60,29 @@ spec:
             {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          {{- if .Values.persistence.enabled }}
           volumeMounts:
-            {{- if .Values.persistence.enabled }}
-            - name: data
-              mountPath: /homebridge
-              readOnly: false
-            {{- end }}
-            {{- if .Values.authDisabled }}
-            - name: startup
-              mountPath: /homebridge/startup.sh
-              subPath: startup.sh
-              readOnly: false
-              defaultMode: 493
-            {{- end }}
+              - name: data
+                mountPath: /homebridge
+                readOnly: false
             {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
             {{- end }}
+          {{- end }}
+          {{- if .Values.extraEnvVars}}
+          envFrom:
+            - configMapRef:
+                name: {{ include "homebridge.fullname" . }}-cm
+          {{- end }}
+      {{- if .Values.persistence.enabled }}
       volumes:
-        {{- if .Values.authDisabled }}
-        - name: startup
-          configMap:
-            name: {{ include "homebridge.fullname" . }}-startup
-        {{- end }}
-        {{- if .Values.persistence.enabled }}
         - name: data
           persistentVolumeClaim:
             claimName: {{ include "homebridge.fullname" . }}
-        {{- end }}
         {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
