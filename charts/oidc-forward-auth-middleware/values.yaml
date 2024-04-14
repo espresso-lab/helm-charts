@@ -1,8 +1,10 @@
-replicaCount: 1 # TODO: Change to 2
+replicaCount: 1
+
+# TODO: Deamon mode to have at least one pod per server?
 
 image:
   repository: ghcr.io/espresso-lab/oidc-forward-auth-middleware
-  pullPolicy: Always # TODO: Change in prod
+  pullPolicy: Always # TODO: IfNotPresent
   tag: "latest"
 
 imagePullSecrets: []
