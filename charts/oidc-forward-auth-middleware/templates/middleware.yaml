@@ -8,13 +8,10 @@ spec:
   forwardAuth: 
     address: "http://oidc-forward-auth-middleware.{{ .Release.Namespace }}.svc.cluster.local:{{ $svcPort }}/verify"
     authResponseHeaders: [
-      "Authorization",
       "Set-Cookie",
       "Location"
     ]
     authRequestHeaders: [
-      "Accept",
-      "Cookie",
-      "Authorization"
+      "Cookie"
     ]
     trustForwardHeader: true
