@@ -50,8 +50,8 @@ ingress:
   #      - chart-example.local
 
 extraEnvVars:
-  TZ: "Europe/Berlin"
-  HOMEBRIDGE_INSECURE: "1"
+  # - name: TZ
+  #   value: Europe/Berlin
 
 resources:
   {}
