@@ -35,6 +35,7 @@ oidcProviders:
   #   clientSecret: mysecretpassword
   #   scopes: ["email", "profile"]
   #   existingSecret: oidc-config # Provide a secret with fields clientId, clientSecret
+  #   audience: ["app1"]
 
 extraEnvVars:
   # - name: EXAMPLE_ENV
