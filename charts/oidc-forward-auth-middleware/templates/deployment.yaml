@@ -36,6 +36,8 @@ spec:
           env:
             - name: FORWARD_AUTH_COOKIE
               value: {{ .Values.config.sessionCookieName }}
+            - name: RUST_LOG
+              value: {{ .Values.config.logLevel }}
             {{- range $i, $value := .Values.oidcProviders }}
             - name: "OIDC_PROVIDER_{{ $i }}_HOSTNAME"
               value: {{ $value.ingressHostname }}

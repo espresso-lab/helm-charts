@@ -26,6 +26,7 @@ resources: {}
 
 config:
   sessionCookieName: x_forward_auth_session
+  logLevel: info # debug, info, warn, error
 
 oidcProviders:
   # - ingressHostname: example.com
