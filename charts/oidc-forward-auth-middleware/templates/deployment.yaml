@@ -38,6 +38,8 @@ spec:
               value: {{ .Values.config.sessionCookieName }}
             - name: RUST_LOG
               value: {{ .Values.config.logLevel }}
+            - name: DISABLE_ENHANCED_SECURITY
+              value: {{ .Values.config.disableEnhancedSecurity }}
             {{- range $i, $value := .Values.oidcProviders }}
             - name: "OIDC_PROVIDER_{{ $i }}_HOSTNAME"
               value: {{ $value.ingressHostname }}

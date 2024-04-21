@@ -27,6 +27,7 @@ resources: {}
 config:
   sessionCookieName: x_forward_auth_session
   logLevel: info # debug, info, warn, error
+  disableEnhancedSecurity: false # Enhanced security sets HTTP security headers and forces https
 
 oidcProviders:
   # - ingressHostname: example.com
