@@ -1,0 +1,49 @@
+replicaCount: 1
+
+# TODO: Deamon mode to have at least one pod per server?
+
+image:
+  repository: ghcr.io/espresso-lab/links
+  pullPolicy: Always # TODO: IfNotPresent
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 3000
+
+resources: {}
+
+config:
+  corsAllowOrigins: "*"
+
+extraEnvVars:
+  # - name: EXAMPLE_ENV
+  #   value: ABCD
+
+persistence:
+  enabled: true
+  annotations: {}
+  accessMode: ReadWriteOnce
+  size: 2Gi
+  storageClass: ""
+
+volumes: []
+
+volumeMounts: []
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

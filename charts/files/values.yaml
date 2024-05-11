@@ -1,0 +1,48 @@
+replicaCount: 1
+
+# TODO: Deamon mode to have at least one pod per server?
+
+image:
+  repository: ghcr.io/espresso-lab/files
+  pullPolicy: Always # TODO: IfNotPresent
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 3000
+
+resources: {}
+
+config:
+  s3Endpoint: "https://s3.example.com:9000"
+  s3Region: "eu-central-1"
+  s3AccessKey: "minio"
+  s3Secret: "minio123"
+  s3Bucket: "files"
+  s3ForcePathStyle: "true"
+  corsAllowOrigins: "*"
+
+extraEnvVars:
+  # - name: EXAMPLE_ENV
+  #   value: ABCD
+
+volumes: []
+
+volumeMounts: []
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
