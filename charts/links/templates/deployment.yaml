@@ -35,7 +35,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: CORS_ALLOW_ORIGINS
-              value: {{ .Values.config.corsAllowOrigins }}
+              value: {{ .Values.config.corsAllowOrigins | quote }}
             {{- if .Values.extraEnvVars }}
             {{- toYaml .Values.extraEnvVars | nindent 12 }}
             {{- end }}
