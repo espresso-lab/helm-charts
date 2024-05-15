@@ -5,7 +5,7 @@ replicaCount: 1
 image:
   repository: ghcr.io/espresso-lab/oidc-forward-auth-middleware
   pullPolicy: IfNotPresent
-  tag: "latest"
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""

@@ -3,6 +3,7 @@ replicaCount: 1
 image:
   repository: homebridge/homebridge
   pullPolicy: IfNotPresent
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
