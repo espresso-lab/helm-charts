@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: kanidm/server
   pullPolicy: IfNotPresent
-  tag: "1.1.0-rc.16"
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""

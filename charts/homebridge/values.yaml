@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: homebridge/homebridge
   pullPolicy: IfNotPresent
-  tag: "2024-01-08"
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
@@ -83,7 +83,6 @@ readinessProbe:
     path: /
     port: http
   initialDelaySeconds: 10
-
 
 # Additional volumes on the output Deployment definition.
 volumes: []

@@ -4,8 +4,8 @@ replicaCount: 1
 
 image:
   repository: ghcr.io/espresso-lab/oidc-forward-auth-middleware
-  pullPolicy: Always # TODO: IfNotPresent
-  tag: "latest"
+  pullPolicy: IfNotPresent
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
@@ -27,7 +27,7 @@ resources: {}
 config:
   sessionCookieName: x_forward_auth_session
   logLevel: info # debug, info, warn, error
-  disableEnhancedSecurity: false # Enhanced security sets HTTP security headers and forces https
+  disableEnhancedSecurity: "false" # Enhanced security sets HTTP security headers and forces https
 
 oidcProviders:
   # - ingressHostname: example.com

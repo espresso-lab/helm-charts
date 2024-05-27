@@ -1,11 +1,9 @@
 replicaCount: 1
 
-# TODO: Deamon mode to have at least one pod per server?
-
 image:
   repository: ghcr.io/espresso-lab/files
-  pullPolicy: Always # TODO: IfNotPresent
-  tag: "latest"
+  pullPolicy: IfNotPresent
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
@@ -42,13 +40,15 @@ ingress:
 resources: {}
 
 config:
-  s3Endpoint: "https://s3.example.com:9000"
-  s3Region: "eu-central-1"
-  s3AccessKey: "minio"
-  s3Secret: "minio123"
-  s3Bucket: "files"
-  s3ForcePathStyle: true
   corsAllowOrigins: "*"
+  s3:
+    endpoint: "https://s3.example.com:9000"
+    region: "eu-central-1"
+    accessKeyId: "minio"
+    secretAccessKey: "minio123"
+    existingSecret: "" # Provide the name of an existing secret containing the credentials
+    bucket: "files"
+    forcePathStyle: true
 
 extraEnvVars:
   # - name: EXAMPLE_ENV

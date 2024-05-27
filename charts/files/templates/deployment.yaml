@@ -35,19 +35,32 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: S3_ENDPOINT
-              value: {{ .Values.config.s3Endpoint }}
+              value: {{ .Values.config.s3.endpoint }}
             - name: AWS_REGION
-              value: {{ .Values.config.s3Region }}
-            - name: AWS_ACCESS_KEY_ID
-              value: {{ .Values.config.s3AccessKey }}
-            - name: AWS_SECRET_ACCESS_KEY
-              value: {{ .Values.config.s3Secret }}
+              value: {{ .Values.config.s3.region }}
             - name: S3_BUCKET_NAME
-              value: {{ .Values.config.s3Bucket }}
+              value: {{ .Values.config.s3.bucket }}
             - name: S3_FORCE_PATH_STYLE
-              value: {{ .Values.config.s3ForcePathStyle | quote }}
+              value: {{ .Values.config.s3.forcePathStyle | quote }}
             - name: CORS_ALLOW_ORIGINS
               value: {{ .Values.config.corsAllowOrigins | quote }}
+            {{- if .Values.config.s3.existingSecret }}
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.config.s3.existingSecret }}
+                  key: accessKeyId
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.config.s3.existingSecret }}
+                  key: secretAccessKey
+            {{- else }}
+            - name: AWS_ACCESS_KEY_ID
+              value: {{ .Values.config.s3.accessKeyId }}
+            - name: AWS_SECRET_ACCESS_KEY
+              value: {{ .Values.config.s3.secretAccessKey }}
+            {{- end }}
             {{- if .Values.extraEnvVars }}
             {{- toYaml .Values.extraEnvVars | nindent 12 }}
             {{- end }}
