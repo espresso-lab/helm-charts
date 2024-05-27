@@ -35,11 +35,11 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: S3_ENDPOINT
-              value: {{ .Values.config.s3Endpoint }}
+              value: {{ .Values.config.s3.endpoint }}
             - name: AWS_REGION
-              value: {{ .Values.config.s3Region }}
+              value: {{ .Values.config.s3.region }}
             - name: S3_FORCE_PATH_STYLE
-              value: {{ .Values.config.s3ForcePathStyle | quote }}
+              value: {{ .Values.config.s3.forcePathStyle | quote }}
             {{- if .Values.extraEnvVars }}
             {{- toYaml .Values.extraEnvVars | nindent 12 }}
             {{- end }}

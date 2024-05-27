@@ -40,9 +40,10 @@ ingress:
 resources: {}
 
 config:
-  s3Endpoint: "https://s3.example.com:9000"
-  s3Region: "eu-central-1"
-  s3ForcePathStyle: true
+  s3:
+    endpoint: "https://s3.amazonaws.com"
+    region: "eu-central-1"
+    forcePathStyle: true
 
 extraEnvVars:
   # - name: EXAMPLE_ENV
