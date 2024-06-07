@@ -1,9 +1,6 @@
 apiVersion: v2
 name: files
 description: A Helm chart for Kubernetes
-
 type: application
-
-version: 0.1.4
-
-appVersion: "latest"
+version: 0.1.5
+appVersion: v0.0.1
