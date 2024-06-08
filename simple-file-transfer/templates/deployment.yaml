@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "files.fullname" . }}
+  name: {{ include "simple-file-transfer.fullname" . }}
   labels:
-    {{- include "files.labels" . | nindent 4 }}
+    {{- include "simple-file-transfer.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "files.selectorLabels" . | nindent 6 }}
+      {{- include "simple-file-transfer.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -16,7 +16,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "files.labels" . | nindent 8 }}
+        {{- include "simple-file-transfer.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}

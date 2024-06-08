@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: ghcr.io/espresso-lab/files
+  repository: ghcr.io/espresso-lab/simple-file-transfer
   pullPolicy: IfNotPresent
   tag: ""
 
@@ -44,10 +44,10 @@ config:
   s3:
     endpoint: "https://s3.example.com:9000"
     region: "eu-central-1"
-    accessKeyId: "minio"
-    secretAccessKey: "minio123"
+    accessKeyId: ""
+    secretAccessKey: ""
     existingSecret: "" # Provide the name of an existing secret containing the credentials
-    bucket: "files"
+    bucket: "simple-file-transfer-bucket"
     forcePathStyle: true
 
 extraEnvVars:
