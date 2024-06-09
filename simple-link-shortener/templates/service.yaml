@@ -6,12 +6,12 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.ports.adminUI }}
-      targetPort: http_admin
+      targetPort: http-admin
       protocol: TCP
-      name: http_admin
+      name: http-admin
     - port: {{ .Values.service.ports.forwarder }}
-      targetPort: http_forwarder
+      targetPort: http-forwarder
       protocol: TCP
-      name: http_forwarder
+      name: http-forwarder
   selector:
     {{- include "simple-link-shortener.selectorLabels" . | nindent 4 }}
