@@ -41,16 +41,19 @@ spec:
             {{- end }}
           ports:
             - name: http
-              containerPort: {{ .Values.service.port }}
+              containerPort: {{ .Values.service.ports.adminUI }}
+              protocol: TCP
+            - name: http
+              containerPort: {{ .Values.service.ports.forwarder }}
               protocol: TCP
           livenessProbe:
             httpGet:
               path: /status
-              port: {{ .Values.service.port }}
+              port: {{ .Values.service.ports.adminUI }}
           readinessProbe:
             httpGet:
               path: /status
-              port: {{ .Values.service.port }}
+              port: {{ .Values.service.ports.adminUI }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- if .Values.persistence.enabled }}

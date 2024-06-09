@@ -1,23 +1,23 @@
-{{- if .Values.ingress.enabled -}}
+{{- if .Values.ingressForwarder.enabled -}}
 {{- $fullName := include "simple-link-shortener.fullname" . -}}
-{{- $svcPort := .Values.service.port -}}
+{{- $svcPort := .Values.service.port.forwarder -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ $fullName }}
+  name: {{ $fullName }}-forwarder
   labels:
     {{- include "simple-link-shortener.labels" . | nindent 4 }}
-  {{- with .Values.ingress.annotations }}
+  {{- with .Values.ingressForwarder.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  {{- if .Values.ingress.className }}
-  ingressClassName: {{ .Values.ingress.className }}
+  {{- if .Values.ingressForwarder.className }}
+  ingressClassName: {{ .Values.ingressForwarder.className }}
   {{- end }}
-  {{- if .Values.ingress.tls }}
+  {{- if .Values.ingressForwarder.tls }}
   tls:
-    {{- range .Values.ingress.tls }}
+    {{- range .Values.ingressForwarder.tls }}
     - hosts:
         {{- range .hosts }}
         - {{ . | quote }}
@@ -26,7 +26,7 @@ spec:
     {{- end }}
   {{- end }}
   rules:
-    {{- range .Values.ingress.hosts }}
+    {{- range .Values.ingressForwarder.hosts }}
     - host: {{ .host | quote }}
       http:
         paths:
