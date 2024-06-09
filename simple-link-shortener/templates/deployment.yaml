@@ -40,10 +40,10 @@ spec:
             {{- toYaml .Values.extraEnvVars | nindent 12 }}
             {{- end }}
           ports:
-            - name: http
+            - name: http_admin
               containerPort: {{ .Values.service.ports.adminUI }}
               protocol: TCP
-            - name: http
+            - name: http_forwarder
               containerPort: {{ .Values.service.ports.forwarder }}
               protocol: TCP
           livenessProbe:
