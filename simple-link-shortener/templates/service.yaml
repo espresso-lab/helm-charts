@@ -1,7 +1,8 @@
+{{- $fullName := include "simple-link-shortener.fullname" . -}}
 apiVersion: v1
 kind: Service
 metadata:
-  name: simple-link-shortener
+  name: {{ $fullName }}
 spec:
   type: {{ .Values.service.type }}
   ports:
