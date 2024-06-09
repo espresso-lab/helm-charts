@@ -39,7 +39,8 @@ spec:
               service:
                 name: {{ $fullName }}
                 port:
-                  number: {{ $svcPort }}
+                  # number: {{ $svcPort }}
+                  name: http-admin
           {{- end }}
     {{- end }}
 {{- end }}
