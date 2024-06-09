@@ -36,6 +36,8 @@ spec:
           env:
             - name: CORS_ALLOW_ORIGINS
               value: {{ .Values.config.corsAllowOrigins | quote }}
+            - name: FORWARD_URL
+              value: "https://{{ .Values.ingressForwarder.hosts.0.host }}{{ .Values.ingressForwarder.hosts.0.paths.0.path }}"
             {{- if .Values.extraEnvVars }}
             {{- toYaml .Values.extraEnvVars | nindent 12 }}
             {{- end }}
