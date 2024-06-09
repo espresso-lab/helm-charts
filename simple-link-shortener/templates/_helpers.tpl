@@ -49,3 +49,25 @@ Selector labels
 app.kubernetes.io/name: {{ include "simple-link-shortener.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
+
+
+{{/*
+Forward path
+*/}}
+{{- define "getFirstForwarderHostAndPath" -}}
+{{- $hosts := .Values.ingressForwarder.hosts -}}
+{{- $tls := .Values.ingressForwarder.tls -}}
+{{- $scheme := "http://" -}}
+{{- if gt (len $tls) 0 -}}
+  {{- $scheme = "https://" -}}
+{{- end -}}
+{{- if gt (len $hosts) 0 -}}
+  {{- $firstHost := index $hosts 0 -}}
+  {{- $host := $firstHost.host -}}
+  {{- $paths := $firstHost.paths -}}
+  {{- if gt (len $paths) 0 -}}
+    {{- $firstPath := index $paths 0 -}}
+    {{- printf "%s%s%s" $scheme $host $firstPath.path -}}
+  {{- end -}}
+{{- end -}}
+{{- end -}}

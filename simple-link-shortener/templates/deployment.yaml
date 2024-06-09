@@ -1,3 +1,4 @@
+{{- $firstForwarderHostAndPath := include "getFirstForwarderHostAndPath" . -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -36,8 +37,8 @@ spec:
           env:
             - name: CORS_ALLOW_ORIGINS
               value: {{ .Values.config.corsAllowOrigins | quote }}
-            # - name: FORWARD_URL
-            #   value: "https://{{ .Values.ingressForwarder.hosts.0.host }}{{ .Values.ingressForwarder.hosts.0.paths.0.path }}"
+            - name: FORWARD_URL
+              value: "{{ $firstForwarderHostAndPath }}"
             {{- if .Values.extraEnvVars }}
             {{- toYaml .Values.extraEnvVars | nindent 12 }}
             {{- end }}
