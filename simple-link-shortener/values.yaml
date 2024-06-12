@@ -1,5 +1,3 @@
-replicaCount: 1
-
 image:
   repository: ghcr.io/espresso-lab/simple-link-shortener
   pullPolicy: IfNotPresent
