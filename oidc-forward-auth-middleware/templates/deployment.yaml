@@ -63,9 +63,9 @@ spec:
               value: "{{ $value.clientSecret }}"
             {{- end }}
             - name: "OIDC_PROVIDER_{{ $i }}_SCOPES"
-              value: {{ join ", " $value.scopes }}
+              value: {{ join "," $value.scopes }}
             - name: "OIDC_PROVIDER_{{ $i }}_AUDIENCE"
-              value: {{ join ", " $value.audience }}
+              value: {{ join "," $value.audience }}
             {{- end }}
             {{- if .Values.extraEnvVars }}
             {{- toYaml .Values.extraEnvVars | nindent 12 }}
