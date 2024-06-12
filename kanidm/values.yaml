@@ -1,5 +1,3 @@
-replicaCount: 1
-
 image:
   repository: kanidm/server
   pullPolicy: IfNotPresent

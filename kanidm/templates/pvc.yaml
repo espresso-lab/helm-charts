@@ -3,7 +3,6 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: {{ include "kanidm.fullname" . }}
-  # namespace: {{ .Release.Namespace }}
   labels:
     {{- include "kanidm.labels" . | nindent 4 }}
   {{- with .Values.persistence.annotations }}
