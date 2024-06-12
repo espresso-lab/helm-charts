@@ -5,8 +5,8 @@ metadata:
   labels:
     {{- include "homebridge.labels" . | nindent 4 }}
 spec:
-  strategy:
-    type: Recreate
+#  strategy:
+#    type: Recreate
   selector:
     matchLabels:
       {{- include "homebridge.selectorLabels" . | nindent 6 }}
