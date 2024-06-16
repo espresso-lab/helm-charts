@@ -24,7 +24,6 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "vsftpd.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -33,6 +32,24 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            {{- if .Values.ftp.existingSecret }}
+            - name: FTP_USER
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.ftp.existingSecret }}
+                  key: ftpUser
+            - name: FTP_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.ftp.existingSecret }}
+                  key: ftpPassword
+            {{- else }}
+            - name: FTP_USER
+              value: "{{ .Values.ftp.user }}"
+            - name: FTP_PASS
+              value: "{{ .Values.ftp.password }}"
+            {{- end }}
           ports:
             - name: ftpcontrol
               containerPort: {{ .Values.service.ports.control }}
