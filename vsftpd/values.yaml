@@ -29,7 +29,7 @@ securityContext:
   # runAsUser: 1000
 
 service:
-  type: Nodeport
+  type: NodePort
   ports:
     control: 21
     data: 20000
