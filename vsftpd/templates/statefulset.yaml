@@ -34,8 +34,11 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - name: ftps
-              containerPort: {{ .Values.service.port }}
+            - name: ftpcontrol
+              containerPort: {{ .Values.service.ports.control }}
+              protocol: TCP
+            - name: ftpsdata
+              containerPort: {{ .Values.service.ports.data }}
               protocol: TCP
           livenessProbe:
             {{- toYaml .Values.livenessProbe | nindent 12 }}

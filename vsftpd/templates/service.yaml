@@ -7,9 +7,13 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: ftps
+    - port: {{ .Values.service.ports.control }}
+      targetPort: ftpscontrol
       protocol: TCP
-      name: ftps
+      name: ftpscontrol
+    - port: {{ .Values.service.ports.data }}
+      targetPort: ftpsdata
+      protocol: TCP
+      name: ftpsdata
   selector:
     {{- include "vsftpd.selectorLabels" . | nindent 4 }}

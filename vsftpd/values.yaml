@@ -36,7 +36,9 @@ securityContext:
 
 service:
   type: ClusterIP
-  port: 21
+  ports:
+    control: 21
+    data: 20000
 
 persistence:
   enabled: true
