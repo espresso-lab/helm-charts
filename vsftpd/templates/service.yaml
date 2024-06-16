@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "vsftpd.fullname" . }}
+  labels:
+    {{- include "vsftpd.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: ftps
+      protocol: TCP
+      name: ftps
+  selector:
+    {{- include "vsftpd.selectorLabels" . | nindent 4 }}
