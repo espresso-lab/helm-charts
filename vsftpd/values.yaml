@@ -1,5 +1,5 @@
 image:
-  repository: rhrn/vsftpd
+  repository: ghcr.io/garethflowers/ftp-server
   pullPolicy: IfNotPresent
   tag: ""
 
@@ -32,7 +32,7 @@ service:
   type: NodePort
   ports:
     control: 21
-    data: 20000
+    data: 20
 
 persistence:
   enabled: true
