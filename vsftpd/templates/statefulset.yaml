@@ -52,10 +52,10 @@ spec:
             {{- end }}
           ports:
             - name: ftpcontrol
-              containerPort: {{ .Values.service.ports.control }}
+              containerPort: {{ .Values.service.ports.containerPortControl }}
               protocol: TCP
             - name: ftpsdata
-              containerPort: {{ .Values.service.ports.data }}
+              containerPort: {{ .Values.service.ports.containerPortData }}
               protocol: TCP
           livenessProbe:
             {{- toYaml .Values.livenessProbe | nindent 12 }}

@@ -31,8 +31,10 @@ securityContext:
 service:
   type: NodePort
   ports:
-    control: 21
-    data: 20
+    containerPortControl: 21
+    nodePortControl: 21
+    containerPortData: 20
+    nodePortData: 20
 
 persistence:
   enabled: true

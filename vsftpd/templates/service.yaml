@@ -7,11 +7,13 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.ports.control }}
+    - port: {{ .Values.service.ports.containerPortControl }}
+      nodePort: {{ .Values.service.ports.nodePortControl }}
       targetPort: ftpscontrol
       protocol: TCP
       name: ftpscontrol
-    - port: {{ .Values.service.ports.data }}
+    - port: {{ .Values.service.ports.containerPortData }}
+      nodePort: {{ .Values.service.ports.nodePortData }}
       targetPort: ftpsdata
       protocol: TCP
       name: ftpsdata
