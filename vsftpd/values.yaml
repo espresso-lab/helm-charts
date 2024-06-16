@@ -35,7 +35,6 @@ service:
     # nodePortControl: 21
     containerPortData: 20
     # nodePortData: 20
-  hostNetwork: true
 
 persistence:
   enabled: true
