@@ -57,10 +57,12 @@ resources:
 livenessProbe:
   tcpSocket:
     port: 21
+  periodSeconds: 60
 
 readinessProbe:
   tcpSocket:
     port: 21
+  periodSeconds: 60
 
 volumes: []
 # - name: foo
