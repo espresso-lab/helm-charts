@@ -110,7 +110,7 @@ spec:
           {{- if .Values.persistence.enabled }}
           volumeMounts:
               - name: data
-                mountPath: /data
+                mountPath: /home
                 readOnly: false
             {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
