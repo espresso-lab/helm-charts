@@ -60,6 +60,47 @@ spec:
               containerPort: {{ .Values.service.ports.containerPortData }}
               protocol: TCP
               hostPort: {{ .Values.service.ports.containerPortData }}
+            # Passive Ports
+            - name: pasive0
+              containerPort: 40000
+              protocol: TCP
+              hostPort: 40000
+            - name: pasive1
+              containerPort: 40001
+              protocol: TCP
+              hostPort: 40001
+            - name: pasive2
+              containerPort: 40002
+              protocol: TCP
+              hostPort: 40002
+            - name: pasive3
+              containerPort: 40003
+              protocol: TCP
+              hostPort: 40003
+            - name: pasive4
+              containerPort: 40004
+              protocol: TCP
+              hostPort: 40004
+            - name: pasive5
+              containerPort: 40005
+              protocol: TCP
+              hostPort: 40005
+            - name: pasive6
+              containerPort: 40006
+              protocol: TCP
+              hostPort: 40006
+            - name: pasive7
+              containerPort: 40007
+              protocol: TCP
+              hostPort: 40007
+            - name: pasive8
+              containerPort: 40008
+              protocol: TCP
+              hostPort: 40008
+            - name: pasive9
+              containerPort: 40009
+              protocol: TCP
+              hostPort: 40009
           livenessProbe:
             {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:
