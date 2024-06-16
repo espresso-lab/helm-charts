@@ -32,9 +32,10 @@ service:
   type: NodePort
   ports:
     containerPortControl: 21
-    nodePortControl: 21
+    # nodePortControl: 21
     containerPortData: 20
-    nodePortData: 20
+    # nodePortData: 20
+  hostNetwork: true
 
 persistence:
   enabled: true
