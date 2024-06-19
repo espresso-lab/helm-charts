@@ -25,7 +25,7 @@ jobs:
         with:
           charts_dir: .
           skip_existing: true
-          #skip_upload: true
+          skip_upload: true
           mark_as_latest: true
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
