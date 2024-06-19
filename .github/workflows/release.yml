@@ -18,7 +18,9 @@ jobs:
       - name: Build Charts
         run: |
           for package in * ; do
-            helm package -d .cr-release-packages $package
+            if [ -f "$package/Chart.yaml" ]; then
+                helm package -d .cr-release-packages $package
+            fi
           done
 
       - name: Login to GHCR
