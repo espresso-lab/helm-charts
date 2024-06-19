@@ -29,7 +29,6 @@ jobs:
           skip_existing: true
           skip_upload: true
           mark_as_latest: true
-          packages_with_index: false
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
