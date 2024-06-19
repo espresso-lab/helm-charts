@@ -8,27 +8,18 @@ on:
 jobs:
   release:
     permissions:
-      contents: write
+      contents: read
       packages: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Configure Git
+      - name: Build Charts
         run: |
-          git config user.name "$GITHUB_ACTOR"
-          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-
-      - name: Run chart-releaser
-        uses: helm/chart-releaser-action@v1.6.0
-        with:
-          charts_dir: .
-          skip_existing: true
-          skip_upload: true
-          mark_as_latest: true
-        env:
-          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          for package in * ; do
+            helm package -d .cr-release-packages $package
+          done
 
       - name: Login to GHCR
         uses: docker/login-action@v3
