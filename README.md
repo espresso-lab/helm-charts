@@ -1,26 +1,21 @@
-# WORK IN PROGRESS
-
-# HELM Charts by espresso lab
+# Helm Charts by espresso lab ☕️
 
 Welcome to the `helm-charts` repository by **espresso-lab**! This repository contains a collection of Helm charts for deploying various applications and services in Kubernetes, provided as OCI images.
 
 ## Table of Contents
 
-- [Introduction](#introduction)
 - [Getting Started](#getting-started)
 - [Available Charts 🚀](#available-charts-🚀)
 - [Usage](#usage)
 - [License](#license)
 
-## Introduction
-
-Helm is a package manager for Kubernetes, enabling the management of Kubernetes applications through Helm charts. This repository hosts Helm charts maintained by **espresso-lab** for easy deployment and management of applications in Kubernetes clusters.
 
 ## Getting Started
 
 To get started with using the Helm charts in this repository, you need to have Helm installed on your local machine. If you don't have Helm installed, please follow the [official Helm installation guide](https://helm.sh/docs/intro/install/).
 
 ## Available Charts 🚀
+
 
 | Chart Name                         | Description                    |
 |------------------------------------|--------------------------------|
@@ -33,6 +28,7 @@ To get started with using the Helm charts in this repository, you need to have H
 | **simple-link-shortener**          | A brief description TBD.       |
 | **vsftpd**                         | A brief description TBD.       |
 | **webdav-s3-adapter**              | A brief description TBD.       |
+
 
 For detailed information on each chart, please refer to the specific chart's README file located in its respective directory.
 
@@ -52,7 +48,7 @@ helm show values oci://ghcr.io/espresso-lab/helm-charts/<chart-name> --version <
 
 ## License
 
-This repository is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for more details.
+This repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ---
 
