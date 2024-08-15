@@ -46,7 +46,8 @@ config:
     region: "eu-central-1"
     accessKeyId: ""
     secretAccessKey: ""
-    existingSecret: "" # Provide the name of an existing secret containing the credentials
+    # Provide the name of an existing secret containing the credentials with AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
+    existingSecret: ""
     bucket: "simple-file-transfer-bucket"
     forcePathStyle: true
 

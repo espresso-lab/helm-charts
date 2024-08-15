@@ -49,12 +49,12 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: {{ .Values.config.s3.existingSecret }}
-                  key: accessKeyId
+                  key: AWS_ACCESS_KEY_ID
             - name: AWS_SECRET_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
                   name: {{ .Values.config.s3.existingSecret }}
-                  key: secretAccessKey
+                  key: AWS_SECRET_ACCESS_KEY
             {{- else }}
             - name: AWS_ACCESS_KEY_ID
               value: {{ .Values.config.s3.accessKeyId }}
