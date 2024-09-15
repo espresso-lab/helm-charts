@@ -61,8 +61,6 @@ spec:
           {{- if .Values.extraEnvVars }}
             {{- toYaml .Values.extraEnvVars | nindent 12 }}
           {{- end }}
-          securityContext:
-            privileged: true
       {{- if .Values.persistence.enabled }}
       volumes:
         - name: data

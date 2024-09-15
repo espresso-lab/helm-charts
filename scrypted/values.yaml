@@ -18,7 +18,7 @@ podSecurityContext:
   # fsGroup: 2000
 
 securityContext:
-  {}
+  privileged: true
   # capabilities:
   #   drop:
   #   - ALL
@@ -48,8 +48,8 @@ ingress:
   #      - chart-example.local
 
 extraEnvVars:
-  # - name: TZ
-  #   value: Europe/Berlin
+  - name: TZ
+    value: Europe/Berlin
 
 resources:
   {}
