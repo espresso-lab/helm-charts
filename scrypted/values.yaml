@@ -11,7 +11,7 @@ podAnnotations: {}
 podLabels: {}
 
 hostNetwork: true
-dnsPolicy: "Default"
+dnsPolicy: "ClusterFirstWithHostNet"
 
 podSecurityContext:
   {}
