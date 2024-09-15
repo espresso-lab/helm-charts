@@ -47,6 +47,7 @@ ingress:
   #      - chart-example.local
 
 extraEnvVars:
+  {}
   # - name: TZ
   #   value: Europe/Berlin
 
