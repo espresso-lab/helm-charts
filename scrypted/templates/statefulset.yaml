@@ -57,7 +57,7 @@ spec:
           {{- end }}
           env:
             - name: SCRYPTED_INSECURE_PORT
-              value: {{ .Values.service.port }}
+              value: {{ .Values.service.port | quote }}
           {{- if .Values.extraEnvVars }}
             {{- toYaml .Values.extraEnvVars | nindent 12 }}
           {{- end }}
