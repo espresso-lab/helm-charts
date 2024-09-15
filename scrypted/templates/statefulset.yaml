@@ -49,7 +49,7 @@ spec:
           {{- if .Values.persistence.enabled }}
           volumeMounts:
               - name: data
-                mountPath: /scrypted
+                mountPath: /server/volume
                 readOnly: false
             {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
