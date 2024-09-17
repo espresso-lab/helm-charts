@@ -3,4 +3,4 @@ name: documenso
 description: A Helm chart for Kubernetes
 type: application
 version: 0.0.3
-appVersion: 1.7.0
+appVersion: v1.7.0
