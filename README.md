@@ -17,17 +17,16 @@ To get started with using the Helm charts in this repository, you need to have H
 ## Available Charts 🚀
 
 
-| Chart Name                         | Description                    |
-|------------------------------------|--------------------------------|
-| **ddns-route53**                   | A brief description TBD.       |
-| **homebridge**                     | A brief description TBD.       |
-| **kanidm**                         | A brief description TBD.       |
-| **lldap**                          | A brief description TBD.       |
-| **oidc-forward-auth-middleware**   | A brief description TBD.       |
-| **simple-file-transfer**           | A brief description TBD.       |
-| **simple-link-shortener**          | A brief description TBD.       |
-| **vsftpd**                         | A brief description TBD.       |
-| **webdav-s3-adapter**              | A brief description TBD.       |
+| Chart Name                         | Link to project                                              |
+|------------------------------------|--------------------------------------------------------------|
+| **ddns-route53**                   | https://github.com/crazymax/ddns-route53                     |
+| **homebridge**                     | https://github.com/homebridge/homebridge                     |
+| **kanidm**                         | https://github.com/kanidm/server                             |
+| **lldap**                          | https://github.com/nitnelave/lldap                           |
+| **oidc-forward-auth-middleware**   | https://github.com/espresso-lab/oidc-forward-auth-middleware |
+| **simple-file-transfer**           | https://github.com/espresso-lab/simple-file-transfer         |
+| **simple-link-shortener**          | https://github.com/espresso-lab/simple-link-shortener        |
+| **webdav-s3-adapter**              | https://github.com/espresso-lab/webdav-s3-adapter            |
 
 
 For detailed information on each chart, please refer to the specific chart's README file located in its respective directory.
