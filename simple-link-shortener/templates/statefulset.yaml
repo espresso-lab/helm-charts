@@ -34,8 +34,8 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-            - name: CORS_ALLOW_ORIGINS
-              value: {{ .Values.config.corsAllowOrigins | quote }}
+            - name: CORS_ALLOWED_ORIGINS
+              value: {{ .Values.config.corsAllowedOrigins | quote }}
             - name: FORWARD_URL
               value: "{{ $firstForwarderHostAndPath }}"
             {{- if .Values.extraEnvVars }}

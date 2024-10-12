@@ -57,7 +57,7 @@ ingressForwarder:
 resources: {}
 
 config:
-  corsAllowOrigins: "*"
+  corsAllowedOrigins: "*"
 
 extraEnvVars:
   # - name: EXAMPLE_ENV
