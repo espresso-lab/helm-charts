@@ -20,7 +20,7 @@ service:
     adminUI: 3000
     forwarder: 3001
 
-ingressAdminUI:
+ingressApiUI:
   enabled: false
   className: ""
   annotations:
