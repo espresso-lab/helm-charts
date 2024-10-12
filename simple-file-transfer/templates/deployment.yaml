@@ -42,8 +42,12 @@ spec:
               value: {{ .Values.config.s3.bucket }}
             - name: S3_FORCE_PATH_STYLE
               value: {{ .Values.config.s3.forcePathStyle | quote }}
-            - name: CORS_ALLOW_ORIGINS
-              value: {{ .Values.config.corsAllowOrigins | quote }}
+            - name: CORS_ALLOWED_ORIGINS
+              value: {{ .Values.config.corsAllowedOrigins | quote }}
+            - name: LINK_SHORTENER_ENDPOINT
+              value: {{ .Values.config.linkShortener.endpoint | quote }}
+            - name: LINK_SHORTENER_RANDOM_SLUG
+              value: {{ .Values.config.linkShortener.randomSlug | quote }}
             {{- if .Values.config.s3.existingSecret }}
             - name: AWS_ACCESS_KEY_ID
               valueFrom:

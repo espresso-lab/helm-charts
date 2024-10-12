@@ -40,7 +40,7 @@ ingress:
 resources: {}
 
 config:
-  corsAllowOrigins: "*"
+  corsAllowedOrigins: "*"
   s3:
     endpoint: "https://s3.example.com:9000"
     region: "eu-central-1"
@@ -50,6 +50,9 @@ config:
     existingSecret: ""
     bucket: "simple-file-transfer-bucket"
     forcePathStyle: true
+  linkShortener:
+    endpoint: ""
+    randomSlug: true
 
 extraEnvVars:
   # - name: EXAMPLE_ENV
