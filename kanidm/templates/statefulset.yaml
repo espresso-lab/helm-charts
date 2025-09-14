@@ -29,7 +29,7 @@ spec:
       initContainers:
         - name: generate-cert
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          command: ['/kanidm/server/kanidmd']
+          command: ['kanidmd']
           args: ['cert-generate']
           volumeMounts:
             - name: data
@@ -44,7 +44,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          command: ['/kanidm/server/kanidmd']
+          command: ['kanidmd']
           args: [ "server" ]
           ports:
             - name: https
