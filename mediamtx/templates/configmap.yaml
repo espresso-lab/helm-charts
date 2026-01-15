@@ -12,6 +12,10 @@ data:
     logDestinations: [stdout]
     
     ###############################################
+    # Authentication - disabled by default for health checks
+    authMethod: {{ .Values.config.authMethod | default "none" }}
+    
+    ###############################################
     # API settings
     api: {{ .Values.config.api | default true }}
     apiAddress: {{ .Values.config.apiAddress | default ":9997" }}
