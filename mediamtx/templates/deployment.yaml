@@ -60,14 +60,14 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /v3/paths/list
-              port: api
+              path: /metrics
+              port: metrics
             initialDelaySeconds: 5
             periodSeconds: 10
           readinessProbe:
             httpGet:
-              path: /v3/paths/list
-              port: api
+              path: /metrics
+              port: metrics
             initialDelaySeconds: 5
             periodSeconds: 10
           resources:
