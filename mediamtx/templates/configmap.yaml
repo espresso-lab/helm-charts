@@ -1,0 +1,61 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "mediamtx.fullname" . }}
+  labels:
+    {{- include "mediamtx.labels" . | nindent 4 }}
+data:
+  mediamtx.yml: |
+    ###############################################
+    # General settings
+    logLevel: {{ .Values.config.logLevel | default "info" }}
+    logDestinations: [stdout]
+    
+    ###############################################
+    # API settings
+    api: {{ .Values.config.api | default true }}
+    apiAddress: {{ .Values.config.apiAddress | default ":9997" }}
+    
+    ###############################################
+    # Metrics settings
+    metrics: {{ .Values.config.metrics | default true }}
+    metricsAddress: {{ .Values.config.metricsAddress | default ":9998" }}
+    
+    ###############################################
+    # RTSP settings
+    rtsp: {{ .Values.config.rtsp | default true }}
+    rtspAddress: {{ .Values.config.rtspAddress | default ":8554" }}
+    protocols: {{ .Values.config.protocols | default (list "tcp" "udp") | toJson }}
+    
+    ###############################################
+    # RTMP settings
+    rtmp: {{ .Values.config.rtmp | default true }}
+    rtmpAddress: {{ .Values.config.rtmpAddress | default ":1935" }}
+    
+    ###############################################
+    # HLS settings
+    hls: {{ .Values.config.hls | default true }}
+    hlsAddress: {{ .Values.config.hlsAddress | default ":8888" }}
+    
+    ###############################################
+    # WebRTC settings
+    webrtc: {{ .Values.config.webrtc | default true }}
+    webrtcAddress: {{ .Values.config.webrtcAddress | default ":8889" }}
+    
+    ###############################################
+    # SRT settings
+    srt: {{ .Values.config.srt | default true }}
+    srtAddress: {{ .Values.config.srtAddress | default ":8890" }}
+    
+    ###############################################
+    # Recording settings
+    {{- if .Values.config.record }}
+    record: true
+    recordPath: {{ .Values.config.recordPath | default "./recordings/%path/%Y-%m-%d_%H-%M-%S-%f" }}
+    recordFormat: {{ .Values.config.recordFormat | default "fmp4" }}
+    {{- end }}
+    
+    ###############################################
+    # Path settings
+    paths:
+      {{- toYaml .Values.config.paths | nindent 6 }}

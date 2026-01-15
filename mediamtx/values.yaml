@@ -1,0 +1,104 @@
+image:
+  repository: bluenviron/mediamtx
+  pullPolicy: IfNotPresent
+  tag: ""
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  rtsp: 8554
+  rtmp: 1935
+  hls: 8888
+  webrtc: 8889
+  srt: 8890
+  api: 9997
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: mediamtx.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+# MediaMTX configuration
+# See: https://github.com/bluenviron/mediamtx/blob/main/mediamtx.yml
+config:
+  # Log level (debug, info, warn, error)
+  logLevel: info
+  
+  # API settings
+  api: true
+  apiAddress: :9997
+  
+  # Metrics for Prometheus
+  metrics: true
+  metricsAddress: :9998
+  
+  # RTSP settings
+  rtsp: true
+  rtspAddress: :8554
+  protocols: [tcp, udp]
+  
+  # RTMP settings (for receiving streams from NVR)
+  rtmp: true
+  rtmpAddress: :1935
+  
+  # HLS settings
+  hls: true
+  hlsAddress: :8888
+  
+  # WebRTC settings
+  webrtc: true
+  webrtcAddress: :8889
+  
+  # SRT settings
+  srt: true
+  srtAddress: :8890
+  
+  # Recording settings (optional)
+  record: false
+  recordPath: ./recordings/%path/%Y-%m-%d_%H-%M-%S-%f
+  recordFormat: fmp4
+  
+  # Authentication (optional)
+  # authMethod: internal
+  # authInternalUsers:
+  #   - user: admin
+  #     pass: secret
+  #     permissions:
+  #       - action: publish
+  #         path: ""
+  #       - action: read
+  #         path: ""
+  
+  # Paths configuration
+  # Each path can have its own settings
+  paths:
+    all:
+      # Source can be set for proxy/pull mode
+      # source: rtsp://original-source
+      
+      # Record this path
+      # record: true
