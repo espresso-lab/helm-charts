@@ -59,15 +59,13 @@ spec:
               containerPort: 9998
               protocol: TCP
           livenessProbe:
-            httpGet:
-              path: /metrics
-              port: metrics
+            tcpSocket:
+              port: rtsp
             initialDelaySeconds: 5
             periodSeconds: 10
           readinessProbe:
-            httpGet:
-              path: /metrics
-              port: metrics
+            tcpSocket:
+              port: rtsp
             initialDelaySeconds: 5
             periodSeconds: 10
           resources:
