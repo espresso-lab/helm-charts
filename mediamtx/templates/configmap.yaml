@@ -56,6 +56,6 @@ data:
     {{- end }}
     
     ###############################################
-    # Path settings
+    # Path settings - "all" is a special wildcard path
     paths:
-      {{- toYaml .Values.config.paths | nindent 6 }}
+      all:
