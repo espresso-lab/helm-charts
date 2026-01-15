@@ -12,6 +12,22 @@ data:
     logDestinations: [stdout]
     
     ###############################################
+    # Authentication settings
+    {{- if .Values.auth.enabled }}
+    authMethod: internal
+    authInternalUsers:
+      - user: $RTMP_USERNAME
+        pass: $RTMP_PASSWORD
+        permissions:
+          - action: publish
+            path: ""
+          - action: read
+            path: ""
+          - action: playback
+            path: ""
+    {{- end }}
+    
+    ###############################################
     # API settings
     api: {{ .Values.config.api | default true }}
     apiAddress: {{ .Values.config.apiAddress | default ":9997" }}

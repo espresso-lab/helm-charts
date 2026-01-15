@@ -42,6 +42,13 @@ tolerations: []
 
 affinity: {}
 
+# Authentication settings
+auth:
+  enabled: false
+  existingSecret: ""
+  usernameKey: username
+  passwordKey: password
+
 # MediaMTX configuration
 # See: https://github.com/bluenviron/mediamtx/blob/main/mediamtx.yml
 config:
