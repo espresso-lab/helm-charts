@@ -2,5 +2,5 @@ apiVersion: v2
 name: mediamtx
 description: MediaMTX - Ready-to-use SRT/WebRTC/RTSP/RTMP/HLS media server
 type: application
-version: 0.1.8
+version: 0.1.9
 appVersion: 1.15.6

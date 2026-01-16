@@ -10,6 +10,15 @@ data:
     # General settings
     logLevel: {{ .Values.config.logLevel | default "info" }}
     logDestinations: [stdout]
+    {{- if .Values.config.writeQueueSize }}
+    writeQueueSize: {{ .Values.config.writeQueueSize }}
+    {{- end }}
+    {{- if .Values.config.readTimeout }}
+    readTimeout: {{ .Values.config.readTimeout }}
+    {{- end }}
+    {{- if .Values.config.writeTimeout }}
+    writeTimeout: {{ .Values.config.writeTimeout }}
+    {{- end }}
     
     ###############################################
     # Authentication settings
@@ -41,7 +50,11 @@ data:
     # RTSP settings
     rtsp: {{ .Values.config.rtsp | default true }}
     rtspAddress: {{ .Values.config.rtspAddress | default ":8554" }}
-    protocols: {{ .Values.config.protocols | default (list "tcp" "udp") | toJson }}
+    {{- if .Values.config.rtspTransports }}
+    rtspTransports: {{ .Values.config.rtspTransports | toJson }}
+    {{- else }}
+    rtspTransports: {{ .Values.config.protocols | default (list "tcp" "udp") | toJson }}
+    {{- end }}
     
     ###############################################
     # RTMP settings
@@ -52,6 +65,15 @@ data:
     # HLS settings
     hls: {{ .Values.config.hls | default true }}
     hlsAddress: {{ .Values.config.hlsAddress | default ":8888" }}
+    {{- if .Values.config.hlsVariant }}
+    hlsVariant: {{ .Values.config.hlsVariant }}
+    {{- end }}
+    {{- if .Values.config.hlsSegmentCount }}
+    hlsSegmentCount: {{ .Values.config.hlsSegmentCount }}
+    {{- end }}
+    {{- if .Values.config.hlsSegmentDuration }}
+    hlsSegmentDuration: {{ .Values.config.hlsSegmentDuration }}
+    {{- end }}
     
     ###############################################
     # WebRTC settings
