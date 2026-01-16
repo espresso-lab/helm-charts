@@ -1,0 +1,45 @@
+{{- if and .Values.cameraUI.enabled .Values.cameraUI.ingress.enabled -}}
+{{- $fullName := include "homebridge.fullname" . -}}
+{{- $svcPort := .Values.cameraUI.port -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ $fullName }}-camera-ui
+  labels:
+    {{- include "homebridge.labels" . | nindent 4 }}
+  {{- with .Values.cameraUI.ingress.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- if .Values.cameraUI.ingress.className }}
+  ingressClassName: {{ .Values.cameraUI.ingress.className }}
+  {{- end }}
+  {{- if .Values.cameraUI.ingress.tls }}
+  tls:
+    {{- range .Values.cameraUI.ingress.tls }}
+    - hosts:
+        {{- range .hosts }}
+        - {{ . | quote }}
+        {{- end }}
+      secretName: {{ .secretName }}
+    {{- end }}
+  {{- end }}
+  rules:
+    {{- range .Values.cameraUI.ingress.hosts }}
+    - host: {{ .host | quote }}
+      http:
+        paths:
+          {{- range .paths }}
+          - path: {{ .path | default "/" }}
+            {{- if .pathType }}
+            pathType: {{ .pathType | default "ImplementationSpecific" }}
+            {{- end }}
+            backend:
+              service:
+                name: {{ $fullName }}
+                port:
+                  number: {{ $svcPort }}
+          {{- end }}
+    {{- end }}
+{{- end }}

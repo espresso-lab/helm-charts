@@ -11,5 +11,11 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
+    {{- if .Values.cameraUI.enabled }}
+    - port: {{ .Values.cameraUI.port }}
+      targetPort: {{ .Values.cameraUI.port }}
+      protocol: TCP
+      name: camera-ui
+    {{- end }}
   selector:
     {{- include "homebridge.selectorLabels" . | nindent 4 }}
