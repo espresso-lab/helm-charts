@@ -46,11 +46,13 @@ spec:
             {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          {{- if .Values.persistence.enabled }}
+          {{- if or .Values.persistence.enabled .Values.volumeMounts }}
           volumeMounts:
-              - name: data
-                mountPath: /homebridge
-                readOnly: false
+            {{- if .Values.persistence.enabled }}
+            - name: data
+              mountPath: /homebridge
+              readOnly: false
+            {{- end }}
             {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
             {{- end }}
@@ -59,11 +61,13 @@ spec:
           env:
             {{- toYaml .Values.extraEnvVars | nindent 12 }}
           {{- end }}
-      {{- if .Values.persistence.enabled }}
+      {{- if or .Values.persistence.enabled .Values.volumes }}
       volumes:
+        {{- if .Values.persistence.enabled }}
         - name: data
           persistentVolumeClaim:
             claimName: {{ include "homebridge.fullname" . }}
+        {{- end }}
         {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
