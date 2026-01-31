@@ -34,6 +34,17 @@ service:
 cameraUI:
   enabled: false
   port: 8081
+  # Full camera.ui config - applied on every pod start
+  # This completely manages the camera.ui config.json
+  # config:
+  #   logLevel: info
+  #   port: 8081
+  #   cameras:
+  #     - name: Camera1
+  #       videoConfig:
+  #         source: "-i rtsp://..."
+  #         stimeout: 10
+  config: {}
   ingress:
     enabled: false
     className: ""
