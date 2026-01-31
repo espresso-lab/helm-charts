@@ -30,30 +30,6 @@ spec:
       {{- end }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
-      {{- if .Values.cameraUI.config }}
-      initContainers:
-        - name: camera-ui-config
-          image: alpine:latest
-          command:
-            - sh
-            - -c
-            - |
-              CONFIG_FILE="/homebridge/camera.ui/config.json"
-              MANAGED_CONFIG="/config-managed/config.json"
-              mkdir -p /homebridge/camera.ui
-              if [ -f "$MANAGED_CONFIG" ]; then
-                echo "Applying managed camera.ui config..."
-                cp "$MANAGED_CONFIG" "$CONFIG_FILE"
-                echo "Config applied successfully"
-              else
-                echo "Managed config not found"
-              fi
-          volumeMounts:
-            - name: data
-              mountPath: /homebridge
-            - name: camera-ui-config-managed
-              mountPath: /config-managed
-      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -94,11 +70,6 @@ spec:
         {{- end }}
         {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
-        {{- end }}
-        {{- if .Values.cameraUI.config }}
-        - name: camera-ui-config-managed
-          configMap:
-            name: {{ include "homebridge.fullname" . }}-camera-ui-config
         {{- end }}
       {{- end }}
       {{- with .Values.nodeSelector }}
