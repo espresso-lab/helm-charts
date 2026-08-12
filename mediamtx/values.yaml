@@ -109,3 +109,11 @@ config:
       
       # Record this path
       # record: true
+
+# Extra environment variables for the mediamtx container. MediaMTX maps
+# MTX_* variables onto its configuration (e.g. MTX_PATHS_CAM_SOURCE), which
+# allows keeping credentials in a Secret instead of the rendered config.
+extraEnv: []
+
+# envFrom sources (e.g. secretRef) for the mediamtx container.
+extraEnvFrom: []
